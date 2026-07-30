@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary brand colors */
+  --color-onyx: #262626;
+  --color-off-white: #f7f7f3;
+  --color-dove: #a5a194;
+
+  /* Secondary brand colors */
+  --color-beige: #d4cfc5;
+  --color-black-olive: #868269;
+
+  /* Semantic tokens */
+  --background: var(--color-off-white);
+  --foreground: var(--color-onyx);
+  --muted: var(--color-dove);
+  --accent: var(--color-black-olive);
+  --surface: var(--color-beige);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-onyx: #262626;
+  --color-off-white: #f7f7f3;
+  --color-dove: #a5a194;
+  --color-beige: #d4cfc5;
+  --color-black-olive: #868269;
+
+  --font-sans: var(--font-hanken-grotesk);
+  --font-primary: var(--font-hanken-grotesk);
+  --font-secondary: var(--font-hanken-grotesk);
+
+  --font-weight-primary: 400;
+  --font-weight-secondary: 200;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-hanken-grotesk), system-ui, sans-serif;
+  font-weight: var(--font-weight-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .font-primary {
+    font-family: var(--font-hanken-grotesk), system-ui, sans-serif;
+    font-weight: 400;
+  }
+
+  .font-secondary {
+    font-family: var(--font-hanken-grotesk), system-ui, sans-serif;
+    font-weight: 200;
+  }
+
+  .text-display {
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 200;
+  }
+
+  .text-h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+
+  .text-h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .text-h3 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .text-body-light {
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    font-weight: 200;
+  }
+
+  .text-label {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    font-weight: 200;
+    text-transform: uppercase;
+  }
 }
