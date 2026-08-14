@@ -4,7 +4,7 @@ import { ourLocation as copy } from "@/lib/content/site";
 export function OurLocation() {
   return (
     <section
-      id="our-location"
+      id="the-studio"
       className="scroll-mt-28 bg-onyx px-6 py-24 text-off-white md:px-12 md:py-32"
     >
       <div className="mx-auto grid w-full max-w-[110rem] gap-12 lg:grid-cols-12 lg:gap-16">

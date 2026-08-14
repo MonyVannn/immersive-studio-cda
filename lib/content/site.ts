@@ -3,11 +3,17 @@ export type NavLink = {
   href: string;
 };
 
-export type NavGroup = {
-  id: string;
-  /** Accessible name for the group; not rendered visually. */
+export type NavSubsection = {
   label: string;
   links: NavLink[];
+};
+
+export type NavGroup = {
+  id: string;
+  /** Accessible name for the group; not rendered visually on desktop. */
+  label: string;
+  links: NavLink[];
+  subsections?: NavSubsection[];
 };
 
 export const navGroups: NavGroup[] = [
@@ -15,17 +21,32 @@ export const navGroups: NavGroup[] = [
     id: "experience",
     label: "The Experience",
     links: [
-      { label: "The Experience", href: "#what-happens-here" },
+      { label: "The Experience", href: "#the-experience" },
       { label: "Private Events", href: "#private-events" },
+    ],
+    subsections: [
+      {
+        label: "Who It's For",
+        links: [
+          { label: "Builders", href: "#builders" },
+          { label: "Architects", href: "#architects" },
+          {
+            label: "Real Estate Professionals",
+            href: "#real-estate-professionals",
+          },
+          { label: "Experience Creators", href: "#experience-creators" },
+          { label: "Homeowners", href: "#homeowners" },
+        ],
+      },
     ],
   },
   {
     id: "studio",
     label: "The Studio",
     links: [
-      { label: "The Studio", href: "#our-location" },
-      { label: "Membership", href: "#about" },
-      { label: "Book a Session", href: "#contact" },
+      { label: "The Studio", href: "#the-studio" },
+      { label: "Vendor Showcase", href: "#vendor-showcase" },
+      { label: "Membership", href: "#membership" },
     ],
   },
 ];

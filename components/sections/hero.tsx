@@ -24,7 +24,7 @@ export function Hero() {
         </p>
 
         <a
-          href="#what-happens-here"
+          href="#the-experience"
           className="mt-8 inline-flex w-fit items-center gap-3 text-label text-off-white/60 transition-colors hover:text-off-white"
         >
           <span

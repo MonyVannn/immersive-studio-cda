@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-onyx px-6 pb-12 pt-24 text-off-white md:px-12 md:pt-32">
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-20">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
-          <section id="about" className="flex scroll-mt-28 flex-col gap-6">
+          <section id="membership" className="flex scroll-mt-28 flex-col gap-6">
             <p className="text-label text-off-white/50">{about.eyebrow}</p>
             <h2 className="text-h2 font-secondary text-off-white">
               {about.headline}
