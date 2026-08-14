@@ -13,57 +13,59 @@ export type NavGroup = {
 export const navGroups: NavGroup[] = [
   {
     id: "experience",
-    label: "The experience",
+    label: "The Experience",
     links: [
-      { label: "What Happens Here", href: "#what-happens-here" },
-      { label: "Our Location", href: "#our-location" },
+      { label: "The Experience", href: "#what-happens-here" },
       { label: "Private Events", href: "#private-events" },
     ],
   },
   {
     id: "studio",
-    label: "The studio",
+    label: "The Studio",
     links: [
-      { label: "About", href: "#about" },
-      { label: "Contact", href: "#contact" },
+      { label: "The Studio", href: "#our-location" },
+      { label: "Membership", href: "#about" },
+      { label: "Book a Session", href: "#contact" },
     ],
   },
 ];
 
 export const primaryAction: NavLink = {
-  label: "Book a Visit",
+  label: "Book a Session",
   href: "#contact",
 };
 
 export const hero = {
-  eyebrow: "Downtown Coeur d'Alene, Idaho",
-  headline: "Immersive Studio",
+  eyebrow: "The New Dimension of Design",
+  headline: "Full Scale. Full Clarity.",
   subhead:
-    "An immersive design experience for architects, builders, designers, and creatives.",
-  scrollCue: "What happens here",
+    "Step inside future homes, properties, spaces, and original ideas at a 1:1 immersive scale — where architects, builders, real estate professionals, and creators can explore the vision before it exists anywhere else.",
+  scrollCue: "The Experience",
 } as const;
 
 export const whatHappensHere = {
-  eyebrow: "What Happens Here",
-  headline: "Step into your project before it exists.",
+  eyebrow: "The Experience",
+  headline:
+    "Clarity Before Construction Creates Confidence Throughout the Process.",
   problem: {
-    heading: "The problem",
-    body: "Drawings, renderings, and flyovers all ask the same thing of a room full of people: imagine this, and imagine it the same way. Nobody does. Clients sign off on plans they can't fully read, contractors price what they think they see, and the expensive misunderstandings surface on site, months later, when changing anything means changing everything.",
+    heading:
+      "A Simple Change Order Can Cost Thousands—and Delay Your Project by Months.",
+    body: "Visualize your plans at an immersive scale and catch mistakes before they ever happen.",
   },
   solution: {
-    heading: "What we do about it",
-    body: "We build your project at full scale and let you walk it. Judge a sightline from where someone will actually stand. Feel whether the ceiling carries the room. Move a wall and watch the light change while the whole team is standing in it with you. Decisions that used to take three review cycles get made once, in the room, with nothing left to interpretation.",
+    heading: "Walk through your plans at full scale.",
+    body: "CDA Immersive Studio is a private visualization and creative experience space in Coeur d'Alene, designed for builders, architects, and creators to share their vision at full scale before it meets the real world. Walk through your plans at full scale. Gather your clients or team inside the vision. Explore space, proportion, material, movement, and possibility in an environment designed to make ideas feel real.",
   },
   media: {
     label: "Studio walkthrough",
-    detail: "Moving imagery of the space — drop in the loop when footage lands",
+    detail: "Video showing multiple studio use cases",
   },
 } as const;
 
 export const ourLocation = {
-  eyebrow: "Our Location",
-  headline: "In the heart of Downtown Coeur d'Alene.",
-  body: "We sit on the ground floor in the middle of one of the Northwest's best small downtowns — a walkable grid of restaurants, galleries, and bars that runs straight into the water. Fly into Spokane, drive forty minutes east, and spend the day making decisions on your project without ever getting back in the car. Clients tend to build the trip into something bigger. We recommend it.",
+  eyebrow: "For Design + Build Professionals",
+  headline: "Add Immersive Visualization to Your Client Experience.",
+  body: "A Private Environment for Ideas in Motion. Located in downtown Coeur d'Alene, Idaho, CDA Immersive Studio is a centrally located environment for architectural visualization, creative presentations, collaborative sessions, and intimate immersive gatherings. The studio is designed as a place to experience your design, impress your clients, and make important decisions with greater confidence. Membership experiences may include access to the studio bar, conference spaces, and a curated vendor showcase where elevated materials, textures, fixtures, lighting, and finishes can be evaluated in context. This space was designed as a landing place for teams to get on the same page and make consequential decisions feel easier.",
   stats: [
     { value: "Steps", label: "from Sherman Avenue" },
     { value: "4 blocks", label: "to Lake Coeur d'Alene" },
@@ -77,36 +79,36 @@ export const ourLocation = {
 
 export const privateEvents = {
   eyebrow: "Private Events",
-  headline: "Host your next event at Immersive Studio.",
-  body: "The studio doesn't only run project reviews. Outside of working hours it becomes one of the more unusual rooms in town — a space you can fill with whatever you want people standing inside of. Client dinners, product launches, firm socials, board offsites, and the occasional thing we didn't see coming.",
+  headline: "Gather Inside Something Unforgettable.",
+  body: "A private immersive setting for presentations, launches, dinners, creative gatherings, and intimate events. CDA Immersive Studio can transform around the purpose of the gathering. Host a private presentation surrounded by the work. Introduce a new idea through image, sound, and atmosphere. Bring a team together inside a shared visual environment. Create a dinner, conversation, performance, or celebration that could not happen in a conventional venue. Our event experiences are intentionally selective and developed in collaboration with each host.",
   slides: [
     {
-      id: "reception",
-      label: "Evening reception",
-      detail: "Cocktail-hour setup across the main floor",
+      id: "presentation",
+      label: "Private presentation",
+      detail: "Presentation surrounded by the work at full scale",
     },
     {
       id: "launch",
       label: "Product launch",
-      detail: "Brand environment built for a launch night",
-    },
-    {
-      id: "offsite",
-      label: "Board offsite",
-      detail: "Daytime working session with the room reconfigured",
+      detail: "New idea introduced through image, sound, and atmosphere",
     },
     {
       id: "dinner",
       label: "Private dinner",
-      detail: "Long-table dinner inside a built environment",
+      detail: "Dinner and conversation inside a shared visual environment",
+    },
+    {
+      id: "gathering",
+      label: "Creative gathering",
+      detail: "Performance or celebration in an unconventional venue",
     },
   ],
 } as const;
 
 export const about = {
-  eyebrow: "About",
-  headline: "A room built for deciding.",
-  body: "Immersive Studio is a purpose-built visualization space in Coeur d'Alene, Idaho, made for the people who design and build things: architects, builders, designers, and the clients who have to say yes to their work.",
+  eyebrow: "Founding Studio Partners",
+  headline: "Make Immersion Part of Your Signature Process.",
+  body: "A limited professional relationship for builders, architects, designers, and creative firms seeking ongoing access to the studio. CDA Immersive Studio is being built in relationship with the professionals shaping what comes next in North Idaho and the surrounding region. Studio partnerships are intended for firms that see immersive presentation as more than an occasional tool. Founding partnerships are intentionally limited to preserve the quality and availability of the experience.",
 } as const;
 
 export type ContactDetail = {
@@ -126,8 +128,8 @@ const contactDetails: ContactDetail[] = [
 ];
 
 export const contact = {
-  eyebrow: "Contact",
-  headline: "Come see it.",
-  body: "Bring a project, or bring an event. Either way, the fastest way to understand the studio is to stand in it.",
+  eyebrow: "Book a Session",
+  headline: "Book a Private Experience",
+  body: "Every immersive session begins before you enter the studio. Our team reviews the project, prepares the appropriate plans and visual content, and shapes the room around the purpose of your visit. When you arrive, the experience is ready for you.",
   details: contactDetails,
 } as const;

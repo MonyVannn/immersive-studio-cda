@@ -7,8 +7,8 @@ export {
 export { brandTypography, typeScale } from "./typography";
 
 export const brand = {
-  name: "Immersive Studio",
+  name: "CDA Immersive Studio",
   location: "CDA",
   tagline:
-    "An immersive design experience for architects, builders, designers, and creatives.",
+    "Step inside future homes, properties, spaces, and original ideas at a 1:1 immersive scale — where architects, builders, real estate professionals, and creators can explore the vision before it exists anywhere else.",
 } as const;

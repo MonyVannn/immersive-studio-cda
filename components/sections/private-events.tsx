@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { PlaceholderMedia } from "@/components/placeholder-media";
+import { brand } from "@/lib/brand";
 import { privateEvents as copy } from "@/lib/content/site";
 
 const SWIPE_THRESHOLD_PX = 50;
@@ -34,7 +35,7 @@ export function PrivateEvents() {
           role="region"
           tabIndex={0}
           aria-roledescription="carousel"
-          aria-label="Private events at Immersive Studio"
+          aria-label={`Private events at ${brand.name}`}
           onKeyDown={(event) => {
             if (event.key === "ArrowLeft") {
               event.preventDefault();

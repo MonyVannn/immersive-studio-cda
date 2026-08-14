@@ -6,7 +6,7 @@ export function Hero() {
     <section className="relative flex min-h-[88svh] items-end overflow-hidden bg-onyx">
       <PlaceholderMedia
         label="Hero"
-        detail="Full-bleed footage of the studio in use"
+        detail="Video showing multiple studio use cases"
         kind="video"
         tone="dark"
         className="absolute inset-0 border-0"
