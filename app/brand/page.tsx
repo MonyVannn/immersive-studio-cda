@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import { brand, brandColors } from "@/lib/brand";
+
+export const metadata: Metadata = {
+  title: "Brand System",
+};
 
 const palette = [
   { name: "Onyx", hex: brandColors.onyx, role: "Primary" },
@@ -8,12 +14,20 @@ const palette = [
   { name: "Black Olive", hex: brandColors.blackOlive, role: "Secondary" },
 ] as const;
 
-export default function Home() {
+export default function BrandPage() {
   return (
     <main className="flex flex-1 flex-col px-6 py-16 md:px-12 md:py-24">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-20">
         <header className="flex flex-col gap-6 border-b border-beige pb-16">
-          <p className="text-label text-dove">Brand System</p>
+          <div className="flex items-center justify-between gap-6">
+            <p className="text-label text-dove">Brand System</p>
+            <Link
+              href="/"
+              className="text-label text-black-olive transition-opacity hover:opacity-60"
+            >
+              Back to site
+            </Link>
+          </div>
           <h1 className="text-display font-secondary text-onyx">
             {brand.name}
           </h1>
