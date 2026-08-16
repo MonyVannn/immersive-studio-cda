@@ -90,11 +90,13 @@ export const whatHappensHere = {
 export const founder = {
   eyebrow: "Built by Experience",
   headline: "Meet Our Founder, Jeremy.",
+  name: "Jeremy",
+  title: "Founder",
   subhead:
     "After years in construction, it was designing a home with his wife that changed the way Jeremy understood the building process.",
   media: {
-    label: "Founder introduction",
-    detail: "Jeremy's founder and studio explainer video",
+    label: "Jeremy",
+    detail: "Founder portrait",
   },
 } as const;
 

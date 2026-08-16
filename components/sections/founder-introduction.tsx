@@ -7,24 +7,29 @@ export function FounderIntroduction() {
       id="founder"
       className="scroll-mt-28 bg-off-white px-6 py-24 md:px-12 md:py-32"
     >
-      <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-12">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="flex flex-col gap-6">
-            <p className="text-label text-black-olive">{copy.eyebrow}</p>
-            <h2 className="max-w-3xl text-display font-secondary text-onyx">
-              {copy.headline}
-            </h2>
-          </div>
-          <p className="max-w-md text-body-light text-onyx/70">{copy.subhead}</p>
+      <h2 className="sr-only">{copy.headline}</h2>
+
+      <div className="mx-auto grid w-full max-w-[110rem] items-start gap-12 lg:grid-cols-12 lg:gap-20">
+        <div className="order-2 lg:order-1 lg:col-span-8">
+          <p className="max-w-4xl text-h1 font-secondary leading-[1.3] text-onyx">
+            {copy.subhead}
+          </p>
         </div>
 
-        <PlaceholderMedia
-          label={copy.media.label}
-          detail={copy.media.detail}
-          kind="video"
-          tone="dark"
-          className="aspect-[16/9] w-full"
-        />
+        <div className="order-1 flex flex-col gap-6 lg:order-2 lg:col-span-4">
+          <PlaceholderMedia
+            label={copy.media.label}
+            detail={copy.media.detail}
+            tone="dark"
+            className="aspect-[3/4] w-full"
+          />
+
+          <div className="flex flex-col gap-1">
+            <p className="text-label text-black-olive">{copy.eyebrow}</p>
+            <p className="text-label text-onyx">{copy.name}</p>
+            <p className="text-sm font-secondary text-onyx/70">{copy.title}</p>
+          </div>
+        </div>
       </div>
     </section>
   );
