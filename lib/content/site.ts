@@ -83,6 +83,17 @@ export const whatHappensHere = {
   },
 } as const;
 
+export const founder = {
+  eyebrow: "Built by Experience",
+  headline: "Meet Our Founder, Jeremy.",
+  subhead:
+    "After years in construction, it was designing a home with his wife that changed the way Jeremy understood the building process.",
+  media: {
+    label: "Founder introduction",
+    detail: "Jeremy's founder and studio explainer video",
+  },
+} as const;
+
 export const ourLocation = {
   eyebrow: "For Design + Build Professionals",
   headline: "Add Immersive Visualization to Your Client Experience.",
