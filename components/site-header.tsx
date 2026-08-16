@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { brand } from "@/lib/brand";
 import {
   navGroups,
-  primaryAction,
   type NavGroup,
   type NavSubsection,
 } from "@/lib/content/site";
@@ -167,31 +167,30 @@ export function SiteHeader() {
           <Link
             href="/"
             onClick={closeMenu}
-            className="text-base uppercase leading-none tracking-[0.3em] text-off-white transition-opacity hover:opacity-70"
+            className="transition-opacity hover:opacity-70"
           >
-            {brand.name}
+            <Image
+              src={brand.logo.src}
+              alt={brand.logo.alt}
+              width={brand.logo.width}
+              height={brand.logo.height}
+              priority
+              className="h-8 w-auto md:h-18"
+            />
           </Link>
 
-          <div className="hidden items-start gap-14 lg:flex">
-            {navGroups.map((group) => (
-              <nav
-                key={group.id}
-                aria-label={group.label}
-                className="flex flex-col gap-1"
-              >
-                <NavGroupLinks group={group} variant="desktop" />
-              </nav>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Link
-              href={primaryAction.href}
-              onClick={closeMenu}
-              className="border border-off-white/30 px-4 py-2 text-label text-off-white transition-colors hover:border-off-white hover:bg-off-white hover:text-onyx"
-            >
-              {primaryAction.label}
-            </Link>
+          <div className="flex items-start gap-10 lg:gap-14">
+            <div className="hidden items-start gap-14 lg:flex">
+              {navGroups.map((group) => (
+                <nav
+                  key={group.id}
+                  aria-label={group.label}
+                  className="flex flex-col gap-1"
+                >
+                  <NavGroupLinks group={group} variant="desktop" />
+                </nav>
+              ))}
+            </div>
 
             <button
               type="button"

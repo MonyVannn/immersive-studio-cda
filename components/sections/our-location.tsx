@@ -19,7 +19,7 @@ export function OurLocation() {
 
         <div className="flex flex-col justify-center gap-8 lg:col-span-5">
           <p className="text-label text-off-white/50">{copy.eyebrow}</p>
-          <h2 className="text-h1 font-secondary text-off-white">
+          <h2 className="max-w-4xl text-display font-secondary text-off-white">
             {copy.headline}
           </h2>
           <p className="max-w-prose text-body-light text-off-white/75">
