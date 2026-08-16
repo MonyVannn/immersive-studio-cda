@@ -37,6 +37,43 @@
 
   --font-weight-primary: 400;
   --font-weight-secondary: 200;
+
+  --animate-hero-zoom: hero-zoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-copy: hero-copy 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
+  --animate-hero-header: hero-header 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-copy {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    pointer-events: none;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+@keyframes hero-header {
+  from {
+    opacity: 0;
+    pointer-events: none;
+  }
+  to {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

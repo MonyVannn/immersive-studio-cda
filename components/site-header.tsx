@@ -155,7 +155,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
-        className={`transition-colors duration-500 ${
+        className={`animate-hero-header transition-colors duration-500 motion-reduce:animate-none ${
           opaque ? "bg-onyx/92 backdrop-blur-md" : "bg-transparent"
         }`}
       >
