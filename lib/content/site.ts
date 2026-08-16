@@ -62,6 +62,10 @@ export const hero = {
   subhead:
     "Step inside future homes, properties, spaces, and original ideas at a 1:1 immersive scale — where architects, builders, real estate professionals, and creators can explore the vision before it exists anywhere else.",
   scrollCue: "The Experience",
+  media: {
+    src: "/assets/hero/hero-image.png",
+    alt: "Visitors walking through architectural plans projected across the walls and floor of CDA Immersive Studio",
+  },
 } as const;
 
 export const whatHappensHere = {
