@@ -77,19 +77,57 @@ export const whatHappensHere = {
   eyebrow: "The Experience",
   headline:
     "Clarity Before Construction Creates Confidence Throughout the Process.",
-  problem: {
-    heading:
-      "A Simple Change Order Can Cost Thousands—and Delay Your Project by Months.",
-    body: "Visualize your plans at an immersive scale and catch mistakes before they ever happen.",
-  },
-  solution: {
-    heading: "Walk through your plans at full scale.",
-    body: "CDA Immersive Studio is a private visualization and creative experience space in Coeur d'Alene, designed for builders, architects, and creators to share their vision at full scale before it meets the real world. Walk through your plans at full scale. Gather your clients or team inside the vision. Explore space, proportion, material, movement, and possibility in an environment designed to make ideas feel real.",
-  },
+  subheading: "Walk through your plans at full scale.",
+  body: "CDA Immersive Studio is a private visualization and creative experience space in Coeur d'Alene, designed for builders, architects, and creators to share their vision at full scale before it meets the real world. Walk through your plans at full scale. Gather your clients or team inside the vision. Explore space, proportion, material, movement, and possibility in an environment designed to make ideas feel real.",
   media: {
     label: "Studio walkthrough",
     detail: "Video showing multiple studio use cases",
   },
+} as const;
+
+export const howItWorks = {
+  eyebrow: "How a Session Works",
+  steps: [
+    {
+      number: "01",
+      title: "Upload",
+      body: "Send your drawings. We handle the projection-ready prep.",
+    },
+    {
+      number: "02",
+      title: "Project",
+      body: "The plan is projected on the floor. Elevations take the wall.",
+    },
+    {
+      number: "03",
+      title: "Walk",
+      body: "Your client stands in the space and feels the design.",
+    },
+    {
+      number: "04",
+      title: "Refine",
+      body: "Changes marked in the room, while they're still inexpensive.",
+    },
+    {
+      number: "05",
+      title: "Confirm",
+      body: "Decisions made before construction, not during.",
+    },
+  ],
+  highlights: [
+    {
+      value: "1:1",
+      label: "True-scale floor and elevation projection",
+    },
+    {
+      value: "Any size",
+      label: "Your plan panned across 2,800± sq ft of floor",
+    },
+    {
+      value: "$5K to $25K",
+      label: "Typical cost of one field change order",
+    },
+  ],
 } as const;
 
 export const founder = {
