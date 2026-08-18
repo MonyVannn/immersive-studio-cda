@@ -22,7 +22,7 @@ export function OurLocation() {
           <h2 className="max-w-4xl text-display font-secondary text-off-white">
             {copy.headline}
           </h2>
-          <p className="max-w-prose text-body-light text-off-white/75">
+          <p className="max-w-prose text-body font-primary text-off-white/75">
             {copy.body}
           </p>
 

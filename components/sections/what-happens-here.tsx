@@ -19,7 +19,7 @@ export function WhatHappensHere() {
           {[copy.problem, copy.solution].map((block) => (
             <div key={block.heading} className="flex flex-col gap-4">
               <h3 className="text-label text-black-olive">{block.heading}</h3>
-              <p className="max-w-prose text-body-light text-onyx/80">
+              <p className="max-w-prose text-body font-primary text-onyx/80">
                 {block.body}
               </p>
             </div>

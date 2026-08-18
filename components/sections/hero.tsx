@@ -23,7 +23,7 @@ export function Hero() {
         <h1 className="text-display font-secondary text-off-white">
           {hero.headline}
         </h1>
-        <p className="max-w-xl text-body-light text-off-white/75">
+        <p className="max-w-xl text-body font-primary text-off-white/75">
           {hero.subhead}
         </p>
 

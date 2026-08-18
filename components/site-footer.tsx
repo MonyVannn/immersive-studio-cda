@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { brand } from "@/lib/brand";
 import { about, contact } from "@/lib/content/site";
@@ -6,13 +7,23 @@ export function SiteFooter() {
   return (
     <footer className="bg-onyx px-6 pb-12 pt-24 text-off-white md:px-12 md:pt-32">
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-20">
+        <Link href="/" className="w-fit transition-opacity hover:opacity-70">
+          <Image
+            src={brand.logo.src}
+            alt={brand.logo.alt}
+            width={brand.logo.width}
+            height={brand.logo.height}
+            className="h-10 w-auto md:h-14"
+          />
+        </Link>
+
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <section id="membership" className="flex scroll-mt-28 flex-col gap-6">
             <p className="text-label text-off-white/50">{about.eyebrow}</p>
             <h2 className="text-h2 font-secondary text-off-white">
               {about.headline}
             </h2>
-            <p className="max-w-prose text-body-light text-off-white/70">
+            <p className="max-w-prose text-body font-primary text-off-white/70">
               {about.body}
             </p>
           </section>
@@ -22,7 +33,7 @@ export function SiteFooter() {
             <h2 className="text-h2 font-secondary text-off-white">
               {contact.headline}
             </h2>
-            <p className="max-w-prose text-body-light text-off-white/70">
+            <p className="max-w-prose text-body font-primary text-off-white/70">
               {contact.body}
             </p>
 
@@ -35,7 +46,7 @@ export function SiteFooter() {
                   <dt className="text-label text-off-white/50">
                     {detail.label}
                   </dt>
-                  <dd className="text-body-light text-off-white">
+                  <dd className="text-body font-primary text-off-white">
                     {detail.href ? (
                       <a
                         href={detail.href}
@@ -50,6 +61,13 @@ export function SiteFooter() {
                 </div>
               ))}
             </dl>
+
+            <Link
+              href="/contact"
+              className="text-label text-off-white/50 transition-colors hover:text-off-white"
+            >
+              Contact Us
+            </Link>
           </section>
         </div>
 

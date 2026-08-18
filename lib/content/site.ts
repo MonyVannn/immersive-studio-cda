@@ -51,9 +51,14 @@ export const navGroups: NavGroup[] = [
   },
 ];
 
+export const pageLinks: NavLink[] = [
+  { label: "Founder Story", href: "/founder-story" },
+  { label: "Contact Us", href: "/contact" },
+];
+
 export const primaryAction: NavLink = {
   label: "Book a Session",
-  href: "#contact",
+  href: "/contact",
 };
 
 export const hero = {
@@ -155,14 +160,17 @@ export type ContactDetail = {
   href?: string;
 };
 
-const contactDetails: ContactDetail[] = [
+export const contactDetails: ContactDetail[] = [
   {
     label: "Email",
-    value: "hello@immersivestudio.com",
-    href: "mailto:hello@immersivestudio.com",
+    value: "contact@immersivestudiocda.com",
+    href: "mailto:contact@immersivestudiocda.com",
   },
-  { label: "Phone", value: "(208) 555-0142", href: "tel:+12085550142" },
-  { label: "Studio", value: "Downtown Coeur d'Alene, Idaho" },
+  { label: "Phone", value: "208-755-2696", href: "tel:+12087552696" },
+  {
+    label: "Studio",
+    value: "216 E. Coeur d'Alene Ave, Coeur d'Alene, Idaho 83814",
+  },
 ];
 
 export const contact = {
@@ -170,4 +178,17 @@ export const contact = {
   headline: "Book a Private Experience",
   body: "Every immersive session begins before you enter the studio. Our team reviews the project, prepares the appropriate plans and visual content, and shapes the room around the purpose of your visit. When you arrive, the experience is ready for you.",
   details: contactDetails,
+} as const;
+
+export const contactPage = {
+  eyebrow: "Contact Us",
+  headline: "Get in Touch",
+  body: "Whether you’re interested in booking a private session, learning more about membership, planning an event or photoshoot, or simply want to connect, we’d love to hear from you. Fill out the form below and a member of our team will be in touch.",
+  form: {
+    nameLabel: "Name",
+    emailLabel: "Email",
+    messageLabel: "Message",
+    submitLabel: "Send Message",
+    successMessage: "Thank you — we’ll be in touch soon.",
+  },
 } as const;

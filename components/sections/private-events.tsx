@@ -28,7 +28,7 @@ export function PrivateEvents() {
               {copy.headline}
             </h2>
           </div>
-          <p className="max-w-md text-body-light text-onyx/70">{copy.body}</p>
+          <p className="max-w-md text-body font-primary text-onyx/70">{copy.body}</p>
         </div>
 
         <div

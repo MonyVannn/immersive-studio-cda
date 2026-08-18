@@ -1,5 +1,5 @@
 export const brandColors = {
-  onyx: "#262626",
+  onyx: "#000000",
   offWhite: "#F7F7F3",
   beige: "#D4CFC5",
   dove: "#A5A194",

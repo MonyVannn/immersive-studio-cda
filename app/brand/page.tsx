@@ -31,7 +31,7 @@ export default function BrandPage() {
           <h1 className="text-display font-secondary text-onyx">
             {brand.name}
           </h1>
-          <p className="max-w-xl text-body-light text-dove">{brand.tagline}</p>
+          <p className="max-w-xl text-body font-primary text-dove">{brand.tagline}</p>
         </header>
 
         <section className="flex flex-col gap-8">

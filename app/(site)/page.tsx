@@ -1,4 +1,3 @@
-import { FounderIntroduction } from "@/components/sections/founder-introduction";
 import { Hero } from "@/components/sections/hero";
 import { OurLocation } from "@/components/sections/our-location";
 import { PrivateEvents } from "@/components/sections/private-events";
@@ -9,7 +8,6 @@ export default function Home() {
     <>
       <Hero />
       <WhatHappensHere />
-      <FounderIntroduction />
       <OurLocation />
       <PrivateEvents />
     </>
