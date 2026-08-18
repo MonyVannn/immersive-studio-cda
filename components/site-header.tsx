@@ -251,8 +251,16 @@ export function SiteHeader() {
             />
           </Link>
 
-          <div className="flex items-start gap-10 lg:gap-14">
-            <div className="hidden items-start gap-14 lg:flex">
+          <div className="flex items-start gap-10 overflow-hidden lg:gap-14">
+            <div
+              aria-hidden={menuOpen}
+              inert={menuOpen}
+              className={`hidden items-start gap-14 overflow-hidden lg:flex transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                menuOpen
+                  ? "pointer-events-none translate-x-6 opacity-0 motion-reduce:translate-x-0"
+                  : "translate-x-0 opacity-100"
+              }`}
+            >
               {navGroups.map((group) => (
                 <nav
                   key={group.id}
