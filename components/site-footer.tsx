@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { brand } from "@/lib/brand";
+import { brand, brand2 } from "@/lib/brand";
 import { about, contact } from "@/lib/content/site";
 
 export function SiteFooter() {
@@ -9,11 +9,11 @@ export function SiteFooter() {
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-20">
         <Link href="/" className="w-fit transition-opacity hover:opacity-70">
           <Image
-            src={brand.logo.src}
-            alt={brand.logo.alt}
-            width={brand.logo.width}
-            height={brand.logo.height}
-            className="h-10 w-auto md:h-14"
+            src={brand2.logo.src}
+            alt={brand2.logo.alt}
+            width={brand2.logo.width}
+            height={brand2.logo.height}
+            className="h-10 w-auto md:h-20"
           />
         </Link>
 

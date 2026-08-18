@@ -41,6 +41,19 @@ export function OurLocation() {
               </div>
             ))}
           </dl>
+
+          <a
+            href={copy.cta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center gap-3 text-label text-off-white/60 transition-colors hover:text-off-white"
+          >
+            <span
+              aria-hidden
+              className="block h-px w-10 bg-current transition-[width] duration-300"
+            />
+            {copy.cta.label}
+          </a>
         </div>
       </div>
     </section>

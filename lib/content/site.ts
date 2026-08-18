@@ -143,15 +143,33 @@ export const founder = {
   },
 } as const;
 
-export const ourLocation = {
-  eyebrow: "For Design + Build Professionals",
+export const studioMemberships = {
+  eyebrow: "Studio Memberships",
   headline: "Add Immersive Visualization to Your Client Experience.",
-  body: "A Private Environment for Ideas in Motion. Located in downtown Coeur d'Alene, Idaho, CDA Immersive Studio is a centrally located environment for architectural visualization, creative presentations, collaborative sessions, and intimate immersive gatherings. The studio is designed as a place to experience your design, impress your clients, and make important decisions with greater confidence. Membership experiences may include access to the studio bar, conference spaces, and a curated vendor showcase where elevated materials, textures, fixtures, lighting, and finishes can be evaluated in context. This space was designed as a landing place for teams to get on the same page and make consequential decisions feel easier.",
+  paragraphs: [
+    "Studio Memberships give architects, builders, designers, and creative professionals an ongoing way to integrate Immersive Studio CDA into their process—and their client experience.",
+    "Beyond full-scale visualization sessions, membership experiences may include access to the studio bar, conference spaces, and a curated vendor showcase where materials, textures, fixtures, lighting, and finishes can be evaluated in context.",
+    "It's a professional home base for bringing clients together, presenting ideas with impact, and making consequential decisions easier.",
+  ],
+  cta: {
+    label: "Become a Founding Member",
+    href: "#membership",
+  },
+} as const;
+
+export const ourLocation = {
+  eyebrow: "Our Location",
+  headline: "Historic Character. Downtown Coeur d'Alene.",
+  body: "Immersive Studio CDA is located at 216 E. Coeur d'Alene Ave, inside a historic railroad building in the heart of downtown Coeur d'Alene. Rich with original character and architectural presence, the building offers a distinctive setting for the studio - just steps from Sherman Avenue and four blocks from Lake Coeur d'Alene. Surrounded by downtown's restaurants, hotels, galleries, and shops, it's a natural place to meet with clients, gather a project team, and make a day of the experience.",
   stats: [
     { value: "Steps", label: "from Sherman Avenue" },
     { value: "4 blocks", label: "to Lake Coeur d'Alene" },
-    { value: "40 min", label: "from Spokane International" },
+    { value: "40 min", label: "to Downtown Spokane" },
   ],
+  cta: {
+    label: "Get Directions",
+    href: "https://www.google.com/maps/dir/?api=1&destination=216+E+Coeur+d'Alene+Ave,+Coeur+d'Alene,+ID+83814",
+  },
   media: {
     label: "Studio exterior",
     detail: "Street-level photograph of the building",
