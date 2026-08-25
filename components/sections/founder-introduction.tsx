@@ -5,7 +5,7 @@ export function FounderIntroduction() {
   return (
     <section
       id="founder"
-      className="scroll-mt-28 bg-off-white px-6 py-24 md:px-12 md:py-32"
+      className="scroll-mt-28 bg-off-white px-site py-24 md:py-32"
     >
       <h2 className="sr-only">{copy.headline}</h2>
 

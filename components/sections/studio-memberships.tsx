@@ -4,12 +4,12 @@ export function StudioMemberships() {
   return (
     <section
       id="studio-memberships"
-      className="scroll-mt-28 bg-off-white px-6 py-24 md:px-12 md:py-32"
+      className="scroll-mt-28 bg-off-white px-site py-24 md:py-32"
     >
       <div className="mx-auto grid w-full max-w-[110rem] gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
         <div className="flex flex-col gap-6 lg:col-span-6">
           <p className="text-label text-dove">{copy.eyebrow}</p>
-          <h2 className="text-display font-secondary text-onyx">
+          <h2 className="text-h1 font-secondary text-onyx">
             {copy.headline}
           </h2>
         </div>
@@ -23,7 +23,7 @@ export function StudioMemberships() {
 
           <a
             href={copy.cta.href}
-            className="mt-2 inline-flex w-fit items-center gap-3 text-label text-onyx/60 transition-colors hover:text-onyx"
+            className="cta mt-2 text-label text-onyx/60 transition-colors hover:text-onyx"
           >
             <span
               aria-hidden

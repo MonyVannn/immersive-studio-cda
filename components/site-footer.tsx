@@ -5,7 +5,7 @@ import { about, contact } from "@/lib/content/site";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-onyx px-6 pb-12 pt-24 text-off-white md:px-12 md:pt-32">
+    <footer className="bg-onyx px-site pb-12 pt-24 text-off-white md:pt-32">
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-20">
         <Link href="/" className="w-fit transition-opacity hover:opacity-70">
           <Image
@@ -64,7 +64,7 @@ export function SiteFooter() {
 
             <Link
               href="/contact"
-              className="text-label text-off-white/50 transition-colors hover:text-off-white"
+              className="cta text-label text-off-white/50 transition-colors hover:text-off-white"
             >
               Contact Us
             </Link>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { contact, contactPage as copy } from "@/lib/content/site";
 
 export const metadata: Metadata = {
@@ -8,7 +9,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="scroll-mt-28 bg-off-white px-6 pb-24 pt-40 md:px-12 md:pb-32 md:pt-48">
+    <section className="scroll-mt-28 bg-off-white px-site pb-24 pt-52 md:pb-32 md:pt-64">
+      <ScrollToTop />
       <div className="mx-auto grid w-full max-w-[110rem] gap-16 lg:grid-cols-12 lg:gap-24">
         <div className="flex flex-col gap-8 lg:col-span-6">
           <p className="text-label text-dove">{copy.eyebrow}</p>

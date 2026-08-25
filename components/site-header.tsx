@@ -220,19 +220,21 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const isHome = pathname === "/";
+  const isContact = pathname === "/contact";
   const overLight =
     surface.pathname === pathname ? surface.overLight : pathname !== "/";
-  const opaque = scrolled || menuOpen || overLight;
+  const opaque = scrolled || menuOpen || overLight || isContact;
 
   return (
     <header ref={headerRef} className="fixed inset-x-0 top-0 z-50">
       <div
-        className={`animate-hero-header transition-colors duration-500 motion-reduce:animate-none ${
-          opaque ? "bg-onyx/92 backdrop-blur-md" : "bg-transparent"
-        }`}
+        className={`transition-colors duration-500 ${
+          isHome ? "animate-hero-header motion-reduce:animate-none" : ""
+        } ${opaque ? "bg-onyx/92 backdrop-blur-md" : "bg-transparent"}`}
       >
         <div
-          className={`mx-auto flex w-full max-w-[110rem] items-start justify-between gap-8 px-6 transition-[padding] duration-500 md:px-12 ${
+          className={`mx-auto flex w-full max-w-[110rem] items-start justify-between gap-8 px-site transition-[padding] duration-500 ${
             opaque ? "py-4" : "py-6 md:py-8"
           }`}
         >
@@ -309,7 +311,7 @@ export function SiteHeader() {
       <div
         id="site-menu"
         aria-hidden={!menuOpen}
-        className={`fixed inset-0 -z-10 bg-onyx px-6 pb-16 pt-32 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:px-12 md:pt-40 ${
+        className={`fixed inset-0 -z-10 bg-onyx px-site pb-16 pt-32 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:pt-40 ${
           menuOpen
             ? "translate-y-0"
             : "pointer-events-none translate-y-full motion-reduce:translate-y-0"

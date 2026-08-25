@@ -47,7 +47,7 @@ export const typeScale = {
     weight: 200,
   },
   label: {
-    size: "0.875rem",
+    size: "1.125rem",
     lineHeight: "1.4",
     letterSpacing: "0.12em",
     weight: 200,

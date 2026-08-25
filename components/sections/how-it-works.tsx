@@ -4,7 +4,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="scroll-mt-28 bg-onyx px-6 py-24 text-off-white md:px-12 md:py-32"
+      className="scroll-mt-28 bg-onyx px-site py-24 text-off-white md:py-32"
     >
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16">
         <p className="text-label text-off-white/50">{copy.eyebrow}</p>

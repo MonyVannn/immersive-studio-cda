@@ -18,7 +18,7 @@ export function PrivateEvents() {
   return (
     <section
       id="private-events"
-      className="scroll-mt-28 bg-off-white px-6 py-24 md:px-12 md:py-32"
+      className="scroll-mt-28 bg-off-white px-site py-24 md:py-32"
     >
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-12">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

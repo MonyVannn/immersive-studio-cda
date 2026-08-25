@@ -89,7 +89,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="mt-2 w-fit text-label text-onyx/70 transition-colors hover:text-onyx disabled:opacity-50"
+        className="cta mt-2 text-label text-onyx/70 transition-colors hover:text-onyx disabled:opacity-50"
       >
         {copy.submitLabel}
       </button>

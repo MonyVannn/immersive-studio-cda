@@ -5,13 +5,13 @@ export function WhatHappensHere() {
   return (
     <section
       id="the-experience"
-      className="scroll-mt-28 bg-off-white px-6 py-24 md:px-12 md:py-32"
+      className="scroll-mt-28 bg-off-white px-site py-24 md:py-32"
     >
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16">
         <div className="grid gap-10 lg:grid-cols-3 lg:items-end lg:gap-16">
           <div className="flex flex-col gap-6 lg:col-span-2">
             <p className="text-label text-dove">{copy.eyebrow}</p>
-            <h2 className="text-display font-secondary text-onyx">
+            <h2 className="text-h1 font-secondary text-onyx">
               {copy.headline}
             </h2>
           </div>
