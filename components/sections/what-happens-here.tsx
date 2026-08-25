@@ -5,9 +5,9 @@ export function WhatHappensHere() {
   return (
     <section
       id="the-experience"
-      className="scroll-mt-28 bg-off-white px-site py-24 md:py-32"
+      className="scroll-mt-28 bg-off-white px-site pt-24 pb-8 md:pt-32 md:pb-10"
     >
-      <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16">
+      <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-20 md:gap-24">
         <div className="grid gap-10 lg:grid-cols-3 lg:items-end lg:gap-16">
           <div className="flex flex-col gap-6 lg:col-span-2">
             <p className="text-label text-dove">{copy.eyebrow}</p>
@@ -24,13 +24,15 @@ export function WhatHappensHere() {
           </div>
         </div>
 
-        <PlaceholderMedia
-          label={copy.media.label}
-          detail={copy.media.detail}
-          kind="video"
-          tone="dark"
-          className="aspect-[16/9] w-full"
-        />
+        <div className="mx-auto w-full max-w-6xl lg:px-8">
+          <PlaceholderMedia
+            label={copy.media.label}
+            detail={copy.media.detail}
+            kind="video"
+            tone="dark"
+            className="aspect-[16/9] w-full"
+          />
+        </div>
       </div>
     </section>
   );
