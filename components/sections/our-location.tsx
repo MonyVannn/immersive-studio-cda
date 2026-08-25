@@ -1,4 +1,4 @@
-import { PlaceholderMedia } from "@/components/placeholder-media";
+import Image from "next/image";
 import { ourLocation as copy } from "@/lib/content/site";
 
 export function OurLocation() {
@@ -9,12 +9,15 @@ export function OurLocation() {
     >
       <div className="mx-auto grid w-full max-w-[110rem] gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-7">
-          <PlaceholderMedia
-            label={copy.media.label}
-            detail={copy.media.detail}
-            tone="dark"
-            className="aspect-[4/3] w-full lg:aspect-[3/4] lg:h-full"
-          />
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-onyx/50 lg:aspect-[3/4] lg:h-full">
+            <Image
+              src={copy.media.src}
+              alt={copy.media.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="object-cover object-right"
+            />
+          </div>
         </div>
 
         <div className="flex flex-col justify-center gap-8 lg:col-span-5">

@@ -245,6 +245,8 @@ export const ourLocation = {
     href: "https://www.google.com/maps/dir/?api=1&destination=216+E+Coeur+d'Alene+Ave,+Coeur+d'Alene,+ID+83814",
   },
   media: {
+    src: "/assets/homepage/location.png",
+    alt: "Street-level photograph of the building",
     label: "Studio exterior",
     detail: "Street-level photograph of the building",
   },
@@ -259,21 +261,29 @@ export const privateEvents = {
       id: "presentation",
       label: "Private presentation",
       detail: "Presentation surrounded by the work at full scale",
+      src: "/assets/homepage/private-event.jpeg",
+      alt: "Private presentation",
     },
     {
       id: "launch",
       label: "Product launch",
       detail: "New idea introduced through image, sound, and atmosphere",
+      src: "/assets/homepage/private-event2.jpeg",
+      alt: "Product launch",
     },
     {
       id: "dinner",
       label: "Private dinner",
       detail: "Dinner and conversation inside a shared visual environment",
+      src: "/assets/homepage/private-event3.jpeg",
+      alt: "Private dinner",
     },
     {
       id: "gathering",
       label: "Creative gathering",
       detail: "Performance or celebration in an unconventional venue",
+      src: "/assets/homepage/private-event4.jpeg",
+      alt: "Creative gathering",
     },
   ],
 } as const;

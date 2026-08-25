@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
-import { PlaceholderMedia } from "@/components/placeholder-media";
 import { brand } from "@/lib/brand";
 import { privateEvents as copy } from "@/lib/content/site";
 
@@ -70,12 +70,15 @@ export function PrivateEvents() {
                   className="w-full shrink-0"
                   aria-hidden={slideIndex !== index}
                 >
-                  <PlaceholderMedia
-                    label={slide.label}
-                    detail={slide.detail}
-                    tone="dark"
-                    className="aspect-[16/9] w-full"
-                  />
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-onyx/10">
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      sizes="100vw"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
