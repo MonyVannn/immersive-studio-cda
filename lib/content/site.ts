@@ -5,6 +5,7 @@ export type NavLink = {
 
 export type NavSubsection = {
   label: string;
+  href?: string;
   links: NavLink[];
 };
 
@@ -16,27 +17,105 @@ export type NavGroup = {
   subsections?: NavSubsection[];
 };
 
+export type DesktopNavItem =
+  | { label: string; href: string; links?: never }
+  | { label: string; href?: never; links: NavLink[] };
+
+export type Audience = {
+  slug: string;
+  label: string;
+  headline: string;
+  body: string;
+};
+
+export const whoItsForPath = "/who-its-for";
+
+export const whoItsForPage = {
+  eyebrow: "Who It's For",
+  headline: "The studio is built for the people who shape space.",
+  body: "Architects, builders, real estate professionals, experience creators, and homeowners come here to walk through a vision at full scale — before it exists anywhere else.",
+} as const;
+
+export const audiences: Audience[] = [
+  {
+    slug: "builders",
+    label: "Builders",
+    headline: "Walk the job before the crew arrives.",
+    body: "A set of drawings can still leave a client guessing. In the studio, builders walk clients through the plan at 1:1 — rooms, circulation, ceiling heights, and finish relationships — so decisions happen before they become change orders. It's a clearer way to present, align, and protect the build.",
+  },
+  {
+    slug: "architects",
+    label: "Architects",
+    headline: "Let the space speak at full scale.",
+    body: "Drawings and renderings describe intent. Walking the plan confirms it. Architects use the studio to put clients, consultants, and collaborators inside the design — proportion, sequence, light, and material — so the conversation happens in the space itself, not around a table.",
+  },
+  {
+    slug: "real-estate-professionals",
+    label: "Real Estate Professionals",
+    headline: "Sell what isn't standing yet.",
+    body: "Pre-construction listings, developments, and renovations are hard to feel from a brochure. Real estate professionals bring clients into the property at full scale — to understand layout, volume, and possibility — before a wall is framed or a showing is staged.",
+  },
+  {
+    slug: "experience-creators",
+    label: "Experience Creators",
+    headline: "Stage an idea the room can hold.",
+    body: "The studio can transform around a purpose: a launch, a presentation, a dinner, a performance. Experience creators use the space to put an audience inside an idea — image, sound, and atmosphere — in a setting that is intentionally selective and shaped with each host.",
+  },
+  {
+    slug: "homeowners",
+    label: "Homeowners",
+    headline: "Stand in the home before it exists.",
+    body: "Choosing a layout from paper is an act of imagination. Homeowners come to the studio with their architect or builder to walk the rooms, feel the proportions, and make the decisions that are inexpensive now and expensive later. Clarity here becomes confidence throughout the process.",
+  },
+];
+
+export function audiencePath(slug: string) {
+  return `${whoItsForPath}/${slug}`;
+}
+
+export function getAudience(slug: string) {
+  return audiences.find((audience) => audience.slug === slug);
+}
+
+export const pageLinks: NavLink[] = [
+  { label: "Founder Story", href: "/founder-story" },
+  { label: "Contact Us", href: "/contact" },
+];
+
+export const desktopNav: DesktopNavItem[] = [
+  {
+    label: "The Experience",
+    links: [
+      { label: "Who It's For", href: whoItsForPath },
+      { label: "Private Events", href: "/#private-events" },
+    ],
+  },
+  {
+    label: "The Studio",
+    links: [
+      { label: "Vendor Showcase", href: "/#vendor-showcase" },
+      { label: "Membership", href: "/#studio-memberships" },
+    ],
+  },
+  { label: "Information", links: pageLinks },
+];
+
 export const navGroups: NavGroup[] = [
   {
     id: "experience",
     label: "The Experience",
     links: [
-      { label: "The Experience", href: "#the-experience" },
-      { label: "Private Events", href: "#private-events" },
+      { label: "The Experience", href: "/#the-experience" },
+      { label: "Private Events", href: "/#private-events" },
     ],
     subsections: [
       {
         label: "Who It's For",
-        links: [
-          { label: "Builders", href: "#builders" },
-          { label: "Architects", href: "#architects" },
-          {
-            label: "Real Estate Professionals",
-            href: "#real-estate-professionals",
-          },
-          { label: "Experience Creators", href: "#experience-creators" },
-          { label: "Homeowners", href: "#homeowners" },
-        ],
+        href: whoItsForPath,
+        links: audiences.map((audience) => ({
+          label: audience.label,
+          href: audiencePath(audience.slug),
+        })),
       },
     ],
   },
@@ -44,16 +123,11 @@ export const navGroups: NavGroup[] = [
     id: "studio",
     label: "The Studio",
     links: [
-      { label: "The Studio", href: "#the-studio" },
-      { label: "Vendor Showcase", href: "#vendor-showcase" },
-      { label: "Membership", href: "#membership" },
+      { label: "The Studio", href: "/#the-studio" },
+      { label: "Vendor Showcase", href: "/#vendor-showcase" },
+      { label: "Membership", href: "/#studio-memberships" },
     ],
   },
-];
-
-export const pageLinks: NavLink[] = [
-  { label: "Founder Story", href: "/founder-story" },
-  { label: "Contact Us", href: "/contact" },
 ];
 
 export const primaryAction: NavLink = {
@@ -153,7 +227,7 @@ export const studioMemberships = {
   ],
   cta: {
     label: "Become a Founding Member",
-    href: "#membership",
+    href: "/contact",
   },
 } as const;
 
@@ -228,6 +302,21 @@ export const contactDetails: ContactDetail[] = [
     value: "216 E. Coeur d'Alene Ave, Coeur d'Alene, Idaho 83814",
   },
 ];
+
+export const footer = {
+  cta: {
+    headline: "Ready to walk the space?",
+    action: { label: "Contact us", href: "/contact" },
+  },
+  newsletter: {
+    heading: "Newsletter",
+    body: "Occasional notes from the studio — sessions, events, and what’s next.",
+    placeholder: "Enter your email",
+    submitLabel: "Subscribe",
+    successMessage: "You’re on the list.",
+  },
+  columns: desktopNav,
+} as const;
 
 export const contact = {
   eyebrow: "Book a Session",

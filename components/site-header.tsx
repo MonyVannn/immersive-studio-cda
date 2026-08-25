@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { brand } from "@/lib/brand";
 import {
+  desktopNav,
   navGroups,
   pageLinks,
   type NavGroup,
@@ -75,10 +76,18 @@ function NavSubsectionList({
   linkClassName?: string;
   labelClassName?: string;
 }) {
+  const label = subsection.href ? (
+    <Link href={subsection.href} onClick={onNavigate} className={labelClassName}>
+      {subsection.label}
+    </Link>
+  ) : (
+    <p className={labelClassName}>{subsection.label}</p>
+  );
+
   if (variant === "mobile") {
     return (
       <div className="flex flex-col gap-3">
-        <p className={labelClassName}>{subsection.label}</p>
+        {label}
         <ul className="flex flex-col gap-3 border-l border-off-white/12 pl-6">
           {subsection.links.map((link) => (
             <li key={link.href}>
@@ -93,10 +102,14 @@ function NavSubsectionList({
   }
 
   return (
-    <div className="group/subsection">
-      <p className={`${labelClassName} cursor-default`}>{subsection.label}</p>
+    <div className="group/subsection relative w-max">
+      {subsection.href ? (
+        label
+      ) : (
+        <p className={`${labelClassName} cursor-default`}>{subsection.label}</p>
+      )}
 
-      <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/subsection:grid-rows-[1fr] group-focus-within/subsection:grid-rows-[1fr] motion-reduce:transition-none">
+      <div className="absolute left-0 top-full z-10 min-w-max pt-1 grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/subsection:grid-rows-[1fr] group-focus-within/subsection:grid-rows-[1fr] motion-reduce:transition-none">
         <div className="overflow-hidden">
           <ul className="flex flex-col gap-1 border-l border-off-white/12 py-1 pl-3 motion-safe:-translate-y-1 motion-safe:opacity-0 motion-safe:transition-[transform,opacity] motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover/subsection:translate-y-0 motion-safe:group-hover/subsection:opacity-100 motion-safe:group-focus-within/subsection:translate-y-0 motion-safe:group-focus-within/subsection:opacity-100 motion-reduce:translate-y-0 motion-reduce:opacity-100">
             {subsection.links.map((link) => (
@@ -104,7 +117,7 @@ function NavSubsectionList({
                 <Link
                   href={link.href}
                   onClick={onNavigate}
-                  className="text-sm font-secondary leading-6 text-off-white/70 transition-colors hover:text-off-white"
+                  className="whitespace-nowrap text-sm font-secondary leading-6 text-off-white/70 transition-colors hover:text-off-white"
                 >
                   {link.label}
                 </Link>
@@ -253,37 +266,35 @@ export function SiteHeader() {
             />
           </Link>
 
-          <div className="flex items-start gap-10 overflow-hidden lg:gap-14">
-            <div
+          <div className="flex items-start gap-10 lg:gap-14">
+            <nav
+              aria-label="Primary"
               aria-hidden={menuOpen}
               inert={menuOpen}
-              className={`hidden items-start gap-14 overflow-hidden lg:flex transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+              className={`hidden items-start gap-10 lg:flex lg:gap-14 transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                 menuOpen
                   ? "pointer-events-none translate-x-6 opacity-0 motion-reduce:translate-x-0"
                   : "translate-x-0 opacity-100"
               }`}
             >
-              {navGroups.map((group) => (
-                <nav
-                  key={group.id}
-                  aria-label={group.label}
-                  className="flex flex-col gap-1"
-                >
-                  <NavGroupLinks group={group} variant="desktop" />
-                </nav>
-              ))}
-              <nav aria-label="Pages" className="flex flex-col gap-1">
-                {pageLinks.map((link) => (
+              {desktopNav.map((item) =>
+                item.links ? (
+                  <NavSubsectionList
+                    key={item.label}
+                    subsection={{ label: item.label, links: item.links }}
+                    variant="desktop"
+                  />
+                ) : (
                   <Link
-                    key={link.href}
-                    href={link.href}
+                    key={item.href}
+                    href={item.href}
                     className={navLinkClassName}
                   >
-                    {link.label}
+                    {item.label}
                   </Link>
-                ))}
-              </nav>
-            </div>
+                ),
+              )}
+            </nav>
 
             <button
               type="button"

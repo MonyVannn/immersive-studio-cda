@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { studioMemberships as copy } from "@/lib/content/site";
 
 export function StudioMemberships() {
@@ -21,7 +22,7 @@ export function StudioMemberships() {
             </p>
           ))}
 
-          <a
+          <Link
             href={copy.cta.href}
             className="cta mt-2 text-label text-onyx/60 transition-colors hover:text-onyx"
           >
@@ -30,7 +31,7 @@ export function StudioMemberships() {
               className="block h-px w-10 bg-current transition-[width] duration-300"
             />
             {copy.cta.label}
-          </a>
+          </Link>
         </div>
       </div>
     </section>
