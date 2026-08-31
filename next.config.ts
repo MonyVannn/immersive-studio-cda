@@ -1,7 +1,15 @@
+import { withNextVideo } from "next-video/process";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  turbopack: {
+    rules: {
+      "*.mov": {
+        loaders: ["next-video/webpack/video-raw-loader.js"],
+        as: "*.json",
+      },
+    },
+  },
 };
 
-export default nextConfig;
+export default withNextVideo(nextConfig);

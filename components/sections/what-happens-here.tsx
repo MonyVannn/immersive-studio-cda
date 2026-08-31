@@ -1,4 +1,5 @@
-import { PlaceholderMedia } from "@/components/placeholder-media";
+import Video from "next-video";
+import heroVideo from "@videos/hero.mov";
 import { whatHappensHere as copy } from "@/lib/content/site";
 
 export function WhatHappensHere() {
@@ -25,12 +26,14 @@ export function WhatHappensHere() {
         </div>
 
         <div className="mx-auto w-full max-w-6xl lg:px-8">
-          <PlaceholderMedia
-            label={copy.media.label}
-            detail={copy.media.detail}
-            kind="video"
-            tone="dark"
+          <Video
+            src={heroVideo}
             className="aspect-[16/9] w-full"
+            aria-label={copy.media.label}
+            autoPlay
+            muted
+            loop
+            playsInline
           />
         </div>
       </div>

@@ -205,12 +205,20 @@ export const howItWorks = {
 } as const;
 
 export const founder = {
+  pageEyebrow: "Founder Story",
   eyebrow: "Built by Experience",
   headline: "Meet Our Founder, Jeremy.",
-  name: "Jeremy",
+  name: "Jeremy Decker",
   title: "Founder",
   subhead:
     "After years in construction, it was designing a home with his wife that changed the way Jeremy understood the building process.",
+  paragraphs: [
+    "Immersive Studio CDA was founded by Jeremy Decker, a construction and design professional with more than 25 years of experience bringing projects from concept to completion.",
+    "Jeremy began his career in the field, working his way from labor and finish carpentry into project management, home design, and eventually business ownership. For 13 years, he owned and operated his own construction company, developing a firsthand understanding of every stage of the building process.",
+    "Over the past decade, his work has focused primarily on luxury residential construction, including multi-million-dollar custom homes where thoughtful planning, clear communication, and confident decision-making are essential.",
+    "But the idea for Immersive Studio became personal when Jeremy began designing and building a home for his own family. Even with decades of experience, he found himself wishing for a better way to truly understand the plans, experience the scale of each space, and work through important decisions before construction began.",
+    "That experience became the catalyst for Immersive Studio CDA - a place designed to bring greater clarity and ease to the building process by allowing architects, builders, designers, and their clients to experience plans together at full scale before they’re built.",
+  ],
   media: {
     label: "Jeremy",
     detail: "Founder portrait",
