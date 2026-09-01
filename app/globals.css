@@ -34,6 +34,7 @@
   --font-sans: var(--font-hanken-grotesk);
   --font-primary: var(--font-hanken-grotesk);
   --font-secondary: var(--font-hanken-grotesk);
+  --font-serif: var(--font-instrument-serif);
 
   --font-weight-primary: 400;
   --font-weight-secondary: 200;
@@ -108,6 +109,11 @@ body {
     font-weight: 200;
   }
 
+  .font-serif {
+    font-family: var(--font-instrument-serif), Georgia, serif;
+    font-weight: 400;
+  }
+
   .text-display {
     font-size: clamp(2.75rem, 6vw, 4.5rem);
     line-height: 1.05;
@@ -155,6 +161,12 @@ body {
     letter-spacing: 0.12em;
     font-weight: 200;
     text-transform: uppercase;
+  }
+
+  .text-pull-quote {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
 
   .px-site {
