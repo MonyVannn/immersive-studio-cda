@@ -23,7 +23,7 @@ export function PrivateEvents() {
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-12">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-6">
-            <p className="text-label text-dove">{copy.eyebrow}</p>
+            <p className="text-h2 font-secondary uppercase tracking-[0.12em] text-dove">{copy.eyebrow}</p>
             <h2 className="max-w-3xl text-h1 font-secondary text-onyx">
               {copy.headline}
             </h2>

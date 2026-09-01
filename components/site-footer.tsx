@@ -48,7 +48,7 @@ export function SiteFooter() {
                 alt={brand2.logo.alt}
                 width={brand2.logo.width}
                 height={brand2.logo.height}
-                className="h-6 w-auto md:h-8"
+                className="h-16 w-auto md:h-20"
               />
             </Link>
 
@@ -72,13 +72,13 @@ export function SiteFooter() {
           <div className="flex flex-wrap gap-x-12 gap-y-8 sm:gap-x-16">
             {footer.columns.map((item, index) => (
               <nav key={item.label} aria-label={item.label} className="min-w-[7.5rem]">
-                <p className="text-sm font-primary text-off-white">{item.label}</p>
+                <p className="text-base font-primary text-off-white">{item.label}</p>
                 <ul className="mt-3 flex flex-col gap-1.5">
                   {columnLinks(item).map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-sm font-secondary text-off-white/60 transition-colors hover:text-off-white"
+                        className="text-base font-secondary text-off-white/60 transition-colors hover:text-off-white"
                       >
                         {link.label}
                       </Link>
@@ -106,7 +106,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="text-center text-[0.6875rem] font-secondary text-off-white/40">
+        <p className="text-center text-sm font-secondary text-off-white/40">
           &copy; {new Date().getFullYear()} {brand.name}
         </p>
       </div>

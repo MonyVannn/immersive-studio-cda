@@ -9,10 +9,12 @@ export function StudioMemberships() {
     >
       <div className="mx-auto grid w-full max-w-[110rem] gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
         <div className="flex flex-col gap-6 lg:col-span-8">
-          <p className="text-label text-dove">{copy.eyebrow}</p>
           <h2 className="text-display font-secondary text-onyx">
-            {copy.headline}
+            {copy.eyebrow}
           </h2>
+          <p className="text-h2 font-secondary text-onyx/80">
+            {copy.headline}
+          </p>
         </div>
 
         <div className="flex flex-col gap-6 lg:col-span-4 lg:pt-12">

@@ -9,7 +9,7 @@ export function OurLocation() {
     >
       <div className="mx-auto grid w-full max-w-[110rem] gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-7">
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-onyx/50 lg:aspect-[3/4] lg:h-full">
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-onyx/50 lg:aspect-[16/9]">
             <Image
               src={copy.media.src}
               alt={copy.media.alt}
