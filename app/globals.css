@@ -39,8 +39,8 @@
   --font-weight-secondary: 200;
 
   --animate-hero-zoom: hero-zoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-hero-copy: hero-copy 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
-  --animate-hero-header: hero-header 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
+  --animate-hero-copy: hero-copy 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+  --animate-hero-header: hero-header 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
 }
 
 @keyframes hero-zoom {
@@ -74,6 +74,12 @@
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+body.preloader-active .animate-hero-zoom,
+body.preloader-active .animate-hero-copy,
+body.preloader-active .animate-hero-header {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: no-preference) {
