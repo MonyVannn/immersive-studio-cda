@@ -7,7 +7,7 @@ import { brand } from "@/lib/brand";
 
 const LOAD_DURATION = 2.5;
 const TEXT_FADE = 0.3;
-const SHUTTER_DURATION = 0.9;
+const SHUTTER_DURATION = 1.4;
 const SHUTTER_EASE = "power4.inOut";
 
 export function Preloader() {

@@ -150,12 +150,14 @@ export const hero = {
 export const whatHappensHere = {
   eyebrow: "The Experience",
   headline:
-    "Clarity Before Construction Creates Confidence Throughout the Process.",
+    "Clarity before construction creates confidence throughout the process.",
   subheading: "Walk through your plans at full scale.",
   body: "CDA Immersive Studio is a private visualization and creative experience space in Coeur d'Alene, designed for builders, architects, and creators to share their vision at full scale before it meets the real world. Walk through your plans at full scale. Gather your clients or team inside the vision. Explore space, proportion, material, movement, and possibility in an environment designed to make ideas feel real.",
   media: {
+    src: "/assets/homepage/hero-placeholder.jpeg",
+    alt: "Studio walkthrough placeholder",
     label: "Studio walkthrough",
-    detail: "Video showing multiple studio use cases",
+    detail: "Placeholder image until final video is ready",
   },
 } as const;
 
@@ -262,6 +264,10 @@ export const privateEvents = {
   eyebrow: "Private Events",
   headline: "Gather Inside Something Unforgettable.",
   body: "A private immersive setting for presentations, launches, dinners, creative gatherings, and intimate events. CDA Immersive Studio can transform around the purpose of the gathering. Host a private presentation surrounded by the work. Introduce a new idea through image, sound, and atmosphere. Bring a team together inside a shared visual environment. Create a dinner, conversation, performance, or celebration that could not happen in a conventional venue. Our event experiences are intentionally selective and developed in collaboration with each host.",
+  cta: {
+    label: "Reach Out to Explore Event Opportunities",
+    href: "/contact",
+  },
   slides: [
     {
       id: "presentation",

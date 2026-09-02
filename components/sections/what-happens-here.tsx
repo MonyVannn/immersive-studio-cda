@@ -1,5 +1,4 @@
-import Video from "next-video";
-import heroVideo from "@videos/hero.mov";
+import Image from "next/image";
 import { whatHappensHere as copy } from "@/lib/content/site";
 
 export function WhatHappensHere() {
@@ -26,15 +25,15 @@ export function WhatHappensHere() {
         </div>
 
         <div className="mx-auto w-full max-w-6xl lg:px-8">
-          <Video
-            src={heroVideo}
-            className="aspect-[16/9] w-full"
-            aria-label={copy.media.label}
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
+          <div className="relative aspect-[16/9] w-full overflow-hidden bg-onyx/10">
+            <Image
+              src={copy.media.src}
+              alt={copy.media.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 72rem"
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -39,9 +39,9 @@
   --font-weight-primary: 400;
   --font-weight-secondary: 200;
 
-  --animate-hero-zoom: hero-zoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-hero-copy: hero-copy 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
-  --animate-hero-header: hero-header 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+  --animate-hero-zoom: hero-zoom 2.0s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-copy: hero-copy 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+  --animate-hero-header: hero-header 1.0s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
 }
 
 @keyframes hero-zoom {
