@@ -28,17 +28,17 @@ export function FounderIntroduction() {
             />
           </div>
 
-          {/* Right: quote + body + bio */}
+          {/* Right: body + bio */}
           <div className="flex flex-col gap-8 lg:col-span-7 lg:pt-2">
-            <blockquote className="text-pull-quote font-serif text-off-white">
-              {copy.quote}
-            </blockquote>
-            
             <div className="flex flex-col gap-6">
-              {copy.paragraphs.map((paragraph) => (
+              {copy.paragraphs.map((paragraph, index) => (
                 <p
                   key={paragraph}
-                  className="max-w-4xl text-body font-primary text-off-white/75"
+                  className={
+                    index === 0
+                      ? "max-w-4xl text-h2 font-secondary text-off-white"
+                      : "max-w-4xl text-body font-primary text-off-white/75"
+                  }
                 >
                   {paragraph}
                 </p>

@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { Toast } from "@/components/ui/toast";
 import { contactPage } from "@/lib/content/site";
 import { submitContactForm } from "@/app/(site)/contact/actions";
 
 const copy = contactPage.form;
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -17,17 +18,18 @@ export function ContactForm() {
     const formData = new FormData(form);
     const name = String(formData.get("name") ?? "").trim();
     const email = String(formData.get("email") ?? "").trim();
+    const category = String(formData.get("category") ?? "").trim();
     const message = String(formData.get("message") ?? "").trim();
 
-    if (!name || !email || !message) {
-      setError("Please fill in your name, email, and message.");
+    if (!name || !email || !category || !message) {
+      setError("Please fill in all fields.");
       return;
     }
 
     setPending(true);
     setError(null);
 
-    const result = await submitContactForm({ name, email, message });
+    const result = await submitContactForm({ name, email, category, message });
 
     setPending(false);
 
@@ -37,62 +39,79 @@ export function ContactForm() {
     }
 
     form.reset();
-    setSubmitted(true);
-  }
-
-  if (submitted) {
-    return (
-      <p className="max-w-prose text-body font-primary text-onyx/80">
-        {copy.successMessage}
-      </p>
-    );
+    setToastMessage(copy.successMessage);
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-6">
-      <label className="flex flex-col gap-2">
-        <span className="text-label text-dove">{copy.nameLabel}</span>
-        <input
-          type="text"
-          name="name"
-          required
-          autoComplete="name"
-          className="border-b border-beige bg-transparent py-3 text-body font-primary text-onyx outline-none transition-colors placeholder:text-dove/60 focus:border-onyx"
-        />
-      </label>
-
-      <label className="flex flex-col gap-2">
-        <span className="text-label text-dove">{copy.emailLabel}</span>
-        <input
-          type="email"
-          name="email"
-          required
-          autoComplete="email"
-          className="border-b border-beige bg-transparent py-3 text-body font-primary text-onyx outline-none transition-colors placeholder:text-dove/60 focus:border-onyx"
-        />
-      </label>
-
-      <label className="flex flex-col gap-2">
-        <span className="text-label text-dove">{copy.messageLabel}</span>
-        <textarea
-          name="message"
-          required
-          rows={6}
-          className="resize-y border-b border-beige bg-transparent py-3 text-body font-primary text-onyx outline-none transition-colors placeholder:text-dove/60 focus:border-onyx"
-        />
-      </label>
-
-      {error ? (
-        <p className="text-body font-primary text-onyx/80">{error}</p>
+    <>
+      {toastMessage ? (
+        <Toast message={toastMessage} onDismiss={() => setToastMessage(null)} />
       ) : null}
 
-      <button
-        type="submit"
-        disabled={pending}
-        className="cta mt-2 text-label text-onyx/70 transition-colors hover:text-onyx disabled:opacity-50"
-      >
-        {copy.submitLabel}
-      </button>
-    </form>
+      <form onSubmit={onSubmit} className="flex flex-col gap-6">
+        <label className="flex flex-col gap-2">
+          <span className="text-label text-dove">{copy.nameLabel}</span>
+          <input
+            type="text"
+            name="name"
+            required
+            autoComplete="name"
+            className="border-b border-beige bg-transparent py-3 text-body font-primary text-onyx outline-none transition-colors placeholder:text-dove/60 focus:border-onyx"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2">
+          <span className="text-label text-dove">{copy.emailLabel}</span>
+          <input
+            type="email"
+            name="email"
+            required
+            autoComplete="email"
+            className="border-b border-beige bg-transparent py-3 text-body font-primary text-onyx outline-none transition-colors placeholder:text-dove/60 focus:border-onyx"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2">
+          <span className="text-label text-dove">{copy.categoryLabel}</span>
+          <select
+            name="category"
+            required
+            defaultValue=""
+            className="border-b border-beige bg-transparent py-3 text-body font-primary text-onyx outline-none transition-colors focus:border-onyx"
+          >
+            <option value="" disabled>
+              {copy.categoryPlaceholder}
+            </option>
+            {copy.categoryOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="flex flex-col gap-2">
+          <span className="text-label text-dove">{copy.messageLabel}</span>
+          <textarea
+            name="message"
+            required
+            rows={6}
+            className="resize-y border-b border-beige bg-transparent py-3 text-body font-primary text-onyx outline-none transition-colors placeholder:text-dove/60 focus:border-onyx"
+          />
+        </label>
+
+        {error ? (
+          <p className="text-body font-primary text-onyx/80">{error}</p>
+        ) : null}
+
+        <button
+          type="submit"
+          disabled={pending}
+          className="cta mt-2 text-label text-onyx/70 transition-colors hover:text-onyx disabled:opacity-50"
+        >
+          {copy.submitLabel}
+        </button>
+      </form>
+    </>
   );
 }

@@ -36,6 +36,22 @@ function PhoneIcon() {
   );
 }
 
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden className="h-3.5 w-3.5 fill-none stroke-current">
+      <rect x="2" y="2" width="12" height="12" rx="3" strokeWidth="1.2" />
+      <circle cx="8" cy="8" r="3" strokeWidth="1.2" />
+      <circle cx="11.5" cy="4.5" r="0.75" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function SocialIcon({ label }: { label: string }) {
+  if (label === "Phone") return <PhoneIcon />;
+  if (label === "Instagram") return <InstagramIcon />;
+  return <MailIcon />;
+}
+
 export function SiteFooter() {
   return (
     <footer className="bg-onyx px-site py-10 text-off-white md:py-12">
@@ -93,9 +109,11 @@ export function SiteFooter() {
                         <a
                           href={link.href}
                           aria-label={link.label}
+                          target={link.label === "Instagram" ? "_blank" : undefined}
+                          rel={link.label === "Instagram" ? "noopener noreferrer" : undefined}
                           className="flex h-8 w-8 items-center justify-center rounded-lg bg-off-white/10 text-off-white/80 transition-colors hover:bg-off-white/18 hover:text-off-white"
                         >
-                          {link.label === "Phone" ? <PhoneIcon /> : <MailIcon />}
+                          <SocialIcon label={link.label} />
                         </a>
                       </li>
                     ))}
