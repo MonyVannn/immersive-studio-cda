@@ -93,8 +93,8 @@ export const desktopNav: DesktopNavItem[] = [
   {
     label: "The Studio",
     links: [
-      { label: "Vendor Showcase", href: "/#vendor-showcase" },
       { label: "Membership", href: "/#studio-memberships" },
+      { label: "Vendor Showcase", href: "/#vendor-showcase" },
     ],
   },
   { label: "Information", links: pageLinks },
@@ -124,8 +124,8 @@ export const navGroups: NavGroup[] = [
     label: "The Studio",
     links: [
       { label: "The Studio", href: "/#the-studio" },
-      { label: "Vendor Showcase", href: "/#vendor-showcase" },
       { label: "Membership", href: "/#studio-memberships" },
+      { label: "Vendor Showcase", href: "/#vendor-showcase" },
     ],
   },
 ];
@@ -142,7 +142,7 @@ export const hero = {
     "Step inside future homes, properties, spaces, and original ideas at a 1:1 immersive scale — where architects, builders, real estate professionals, and creators can explore the vision before it exists anywhere else.",
   scrollCue: "The Experience",
   media: {
-    src: "/assets/hero/hero-image.png",
+    src: "/assets/hero/hero-image2.jpeg",
     alt: "Visitors walking through architectural plans projected across the walls and floor of CDA Immersive Studio",
   },
 } as const;

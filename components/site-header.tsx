@@ -14,7 +14,7 @@ import {
 } from "@/lib/content/site";
 
 const navLinkClassName =
-  "text-[0.9375rem] font-secondary leading-7 text-off-white/75 transition-colors hover:text-off-white";
+  "text-base font-primary leading-7 text-off-white/75 transition-colors hover:text-off-white";
 
 function parseRgba(
   color: string,
@@ -117,7 +117,7 @@ function NavSubsectionList({
                 <Link
                   href={link.href}
                   onClick={onNavigate}
-                  className="whitespace-nowrap text-sm font-secondary leading-6 text-off-white/70 transition-colors hover:text-off-white"
+                  className="whitespace-nowrap text-[0.9375rem] font-primary leading-6 text-off-white/70 transition-colors hover:text-off-white"
                 >
                   {link.label}
                 </Link>
@@ -262,7 +262,7 @@ export function SiteHeader() {
               width={brand.logo.width}
               height={brand.logo.height}
               priority
-              className="h-10 w-auto md:h-22"
+              className="h-12 w-auto md:h-24"
             />
           </Link>
 
