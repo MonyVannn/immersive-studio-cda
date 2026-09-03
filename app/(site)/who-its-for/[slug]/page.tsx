@@ -21,7 +21,10 @@ export async function generateMetadata({
     return { title: whoItsForPage.eyebrow };
   }
 
-  return { title: audience.label };
+  return {
+    title: audience.label,
+    description: audience.subheading ?? audience.body,
+  };
 }
 
 export default async function AudiencePage({ params }: AudiencePageProps) {

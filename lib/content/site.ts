@@ -21,11 +21,28 @@ export type DesktopNavItem =
   | { label: string; href: string; links?: never }
   | { label: string; href?: never; links: NavLink[] };
 
+export type AudienceMedia = {
+  label: string;
+  detail?: string;
+  src?: string;
+  alt?: string;
+};
+
 export type Audience = {
   slug: string;
   label: string;
   headline: string;
   body: string;
+  // Rich page fields (optional):
+  pageEyebrow?: string;
+  pageHeadline?: string;
+  subheading?: string;
+  paragraphs?: string[];
+  cta?: { label: string; href: string };
+  media?: {
+    hero: AudienceMedia;
+    inline: AudienceMedia;
+  };
 };
 
 export const whoItsForPath = "/who-its-for";
@@ -54,18 +71,56 @@ export const audiences: Audience[] = [
     label: "Real Estate Professionals",
     headline: "Sell what isn't standing yet.",
     body: "Pre-construction listings, developments, and renovations are hard to feel from a brochure. Real estate professionals bring clients into the property at full scale — to understand layout, volume, and possibility — before a wall is framed or a showing is staged.",
+    pageEyebrow: "FOR REAL ESTATE PROFESSIONALS",
+    subheading: "Give your clients—and yourself—the opportunity to compare multiple properties from one central location.",
+    paragraphs: [
+      "Property searches can require significant time from both real estate professionals and their clients. Touring multiple locations adds travel, scheduling, and expense, while photos and listings often fail to communicate the true scale, flow, and feel of a space.",
+      "CDA Immersive Studio creates a more efficient way to evaluate prospective properties. Bring multiple floor plans into the studio, experience each one at 1:1 scale, and compare layouts before scheduling in-person visits.",
+      "By helping clients understand which spaces are most likely to fit their needs, the studio makes it easier to narrow the search, eliminate poor-fit properties earlier, and reserve valuable time for the locations worth seeing in person.",
+    ],
+    cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
+    media: {
+      hero: { label: "Property comparison at 1:1 scale" },
+      inline: { label: "Multi-plan studio session" },
+    },
   },
   {
     slug: "experience-creators",
     label: "Experience Creators",
     headline: "Stage an idea the room can hold.",
     body: "The studio can transform around a purpose: a launch, a presentation, a dinner, a performance. Experience creators use the space to put an audience inside an idea — image, sound, and atmosphere — in a setting that is intentionally selective and shaped with each host.",
+    pageEyebrow: "FOR EXPERIENCE CREATORS",
+    subheading: "For designers, filmmakers, artists, strategists, educators, and experience-makers working beyond the limits of traditional media.",
+    paragraphs: [
+      "CDA Immersive Studio gives creative work a new dimension. Films can become environments. Ideas can unfold across an entire room. Installations, launches, performances, educational experiences, and gatherings can move beyond presentation and become something audiences actively experience.",
+      "Bring finished work into the studio, or collaborate with the team to expand an early concept into a fully immersive expression. Explore how image, sound, scale, movement, and atmosphere can work together to transport an audience somewhere new.",
+      "This space invites people to become part of the experience rather than simply observe it.",
+    ],
+    cta: { label: "Propose a Creative Experience", href: "/contact?category=Private%20Events" },
+    media: {
+      hero: { label: "Immersive creative environment" },
+      inline: { label: "Audience inside the experience" },
+    },
   },
   {
     slug: "homeowners",
     label: "Homeowners",
     headline: "Stand in the home before it exists.",
     body: "Choosing a layout from paper is an act of imagination. Homeowners come to the studio with their architect or builder to walk the rooms, feel the proportions, and make the decisions that are inexpensive now and expensive later. Clarity here becomes confidence throughout the process.",
+    pageEyebrow: "FOR THE PEOPLE BEHIND THE PROJECT",
+    pageHeadline: "See More Than Plans.\nRecognize Your Future.",
+    subheading: "An invitation to experience the spaces you are creating before construction begins.",
+    paragraphs: [
+      "You should love your custom home before you ever move in.",
+      "At CDA Immersive Studio, homeowners can experience their future home at full scale before construction begins. Walk through each room, understand the flow between spaces, and evaluate how the layout will support the way your family actually lives.",
+      "This immersive review creates an opportunity to refine important decisions early, reduce the risk of costly change orders and delays, and move into construction with greater clarity and confidence.",
+      "Ensure the plans you approve become a home you will love living in for years to come.",
+    ],
+    cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
+    media: {
+      hero: { label: "Future home at full scale" },
+      inline: { label: "Room flow and layout review" },
+    },
   },
 ];
 

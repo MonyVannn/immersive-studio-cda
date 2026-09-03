@@ -29,7 +29,7 @@ export function WhoItsFor() {
             <Link
               key={audience.slug}
               href={audiencePath(audience.slug)}
-              className="text-h1 font-secondary text-onyx transition-opacity hover:opacity-60"
+              className="inline-block w-fit origin-left text-h1 font-secondary text-onyx transition-transform duration-500 ease-out hover:scale-[1.03] motion-reduce:transition-none motion-reduce:hover:scale-100"
             >
               {audience.label}
             </Link>
