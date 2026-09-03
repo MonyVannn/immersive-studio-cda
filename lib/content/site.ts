@@ -220,7 +220,7 @@ export const navGroups: NavGroup[] = [
     label: "The Studio",
     links: [
       { label: "The Studio", href: "/#the-studio" },
-      { label: "Membership", href: "/membership" },
+      { label: "Membership", href: "/#founding-partners" },
       { label: "Vendor Showcase", href: showcasePath },
     ],
   },
@@ -330,6 +330,43 @@ export const studioMemberships = {
   ],
   cta: {
     label: "Learn more",
+    href: "/membership",
+  },
+} as const;
+
+export const foundingStudioPartners = {
+  eyebrow: "FOUNDING STUDIO PARTNERS",
+  headline: "Make Immersion Part of Your Signature Process.",
+  subheading: "A limited professional relationship for builders, architects, designers, and creative firms seeking ongoing access to the studio.",
+  paragraphs: [
+    "CDA Immersive Studio is being built in relationship with the professionals shaping what comes next in North Idaho and the surrounding region.",
+    "Studio partnerships are intended for firms that see immersive presentation as more than an occasional tool. Partners can integrate the studio into client onboarding, design review, project development, team collaboration, and special presentations throughout the year.",
+    "The result is a differentiated experience that becomes part of how your firm works—and how your clients remember working with you.",
+  ],
+  benefitsHeading: "Potential Partner Benefits",
+  benefits: [
+    "Preferred studio access",
+    "Recurring session allocation",
+    "Priority scheduling",
+    "Private client experiences",
+    "Customized project preparation",
+    "Collaborative launch and showcase opportunities",
+    "Studio-hosted industry gatherings",
+    "Partner visibility and storytelling",
+    "Preferred event access",
+    "A direct role in shaping the studio's evolving capabilities",
+  ],
+  media: {
+    label: "Founding partner experience",
+    detail: "Professional firms integrating the studio into their client process",
+  },
+  cta: {
+    label: "Request Founding Partner Details",
+    href: "/contact?category=Studio%20Membership",
+    supportingLine: "Founding partnerships are intentionally limited to preserve the quality and availability of the experience.",
+  },
+  secondaryCta: {
+    label: "View membership details",
     href: "/membership",
   },
 } as const;
