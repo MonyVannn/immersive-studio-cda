@@ -28,6 +28,15 @@ export type AudienceMedia = {
   alt?: string;
 };
 
+export type EventGalleryItem = {
+  id: string;
+  label: string;      // event name
+  detail: string;     // description
+  date: string;       // display string, e.g. "March 2026"
+  src?: string;
+  alt?: string;
+};
+
 export type Audience = {
   slug: string;
   label: string;
@@ -51,6 +60,7 @@ export type Audience = {
 
 export const whoItsForPath = "/who-its-for";
 export const showcasePath = "/showcase";
+export const privateEventsPath = "/private-events";
 
 export const whoItsForPage = {
   eyebrow: "Who It's For",
@@ -183,7 +193,7 @@ export const desktopNav: DesktopNavItem[] = [
     label: "The Experience",
     links: [
       { label: "Who It's For", href: whoItsForPath },
-      { label: "Private Events", href: "/#private-events" },
+      { label: "Private Events", href: privateEventsPath },
     ],
   },
   {
@@ -202,7 +212,7 @@ export const navGroups: NavGroup[] = [
     label: "The Experience",
     links: [
       { label: "The Experience", href: "/#the-experience" },
-      { label: "Private Events", href: "/#private-events" },
+      { label: "Private Events", href: privateEventsPath },
     ],
     subsections: [
       {
@@ -430,6 +440,68 @@ export const privateEvents = {
       alt: "Creative gathering",
     },
   ],
+} as const;
+
+export const privateEventsPage = {
+  eyebrow: "Private Events",
+  headline: "Gather Inside Something Unforgettable.",
+  body: "A private immersive setting for presentations, launches, dinners, creative gatherings, and intimate events. CDA Immersive Studio can transform around the purpose of the gathering. Host a private presentation surrounded by the work. Introduce a new idea through image, sound, and atmosphere. Bring a team together inside a shared visual environment. Create a dinner, conversation, performance, or celebration that could not happen in a conventional venue. Our event experiences are intentionally selective and developed in collaboration with each host.",
+  gallery: [
+    {
+      id: "presentation",
+      label: "Private presentation",
+      detail: "Presentation surrounded by the work at full scale",
+      date: "Spring 2026",
+      src: "/assets/homepage/private-event.jpeg",
+      alt: "Private presentation",
+    },
+    {
+      id: "launch",
+      label: "Product launch",
+      detail: "New idea introduced through image, sound, and atmosphere",
+      date: "Summer 2026",
+      src: "/assets/homepage/private-event2.jpeg",
+      alt: "Product launch",
+    },
+    {
+      id: "dinner",
+      label: "Private dinner",
+      detail: "Dinner and conversation inside a shared visual environment",
+      date: "Fall 2026",
+      src: "/assets/homepage/private-event3.jpeg",
+      alt: "Private dinner",
+    },
+    {
+      id: "gathering",
+      label: "Creative gathering",
+      detail: "Performance or celebration in an unconventional venue",
+      date: "Winter 2026",
+      src: "/assets/homepage/private-event4.jpeg",
+      alt: "Creative gathering",
+    },
+    {
+      id: "offsite",
+      label: "Team offsite",
+      detail: "Focused strategy and alignment sessions",
+      date: "Spring 2027",
+    },
+    {
+      id: "brand-activation",
+      label: "Brand activation",
+      detail: "Immersive experiences that connect audiences to the brand",
+      date: "Summer 2027",
+    },
+    {
+      id: "intimate-performance",
+      label: "Intimate performance",
+      detail: "Exclusive showcases blending sight, sound, and space",
+      date: "Fall 2027",
+    },
+  ],
+  cta: {
+    label: "Reach Out to Explore Event Opportunities",
+    href: "/contact",
+  },
 } as const;
 
 export const showcasePage = {

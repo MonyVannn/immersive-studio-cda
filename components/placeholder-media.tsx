@@ -10,6 +10,8 @@ type PlaceholderMediaProps = {
   alt?: string;
   priority?: boolean;
   className?: string;
+  interactive?: boolean;
+  onClick?: () => void;
 };
 
 const toneStyles = {
@@ -42,10 +44,12 @@ export function PlaceholderMedia({
   alt,
   priority = false,
   className = "",
+  interactive = false,
+  onClick,
 }: PlaceholderMediaProps) {
-  if (src) {
-    return (
-      <div className={`relative overflow-hidden ${className}`}>
+  const content = (
+    <>
+      {src ? (
         <Image
           src={src}
           alt={alt ?? label}
@@ -54,42 +58,62 @@ export function PlaceholderMedia({
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="object-cover"
         />
-      </div>
+      ) : (
+        <>
+          <div className={`absolute inset-0 ${toneStyles[tone].wash}`} />
+          <div className="absolute inset-5 flex flex-col justify-between">
+            <div className="flex justify-between">
+              <span className={`h-4 w-px ${toneStyles[tone].tick}`} />
+              <span className={`h-4 w-px ${toneStyles[tone].tick}`} />
+            </div>
+            <div className="flex justify-between">
+              <span className={`h-4 w-px ${toneStyles[tone].tick}`} />
+              <span className={`h-4 w-px ${toneStyles[tone].tick}`} />
+            </div>
+          </div>
+
+          <div className="relative flex h-full flex-col items-center justify-center gap-2 px-8 text-center">
+            <p className={`text-label ${toneStyles[tone].secondaryText}`}>
+              {kind === "video" ? "Video" : "Image"} placeholder
+            </p>
+            <p className={`text-h3 font-secondary ${toneStyles[tone].primaryText}`}>
+              {label}
+            </p>
+            {detail ? (
+              <p className={`max-w-sm text-sm font-secondary ${toneStyles[tone].secondaryText}`}>
+                {detail}
+              </p>
+            ) : null}
+          </div>
+        </>
+      )}
+    </>
+  );
+
+  const containerClasses = `relative overflow-hidden ${
+    src ? "" : `border ${toneStyles[tone].surface} ${toneStyles[tone].border}`
+  } ${className}`;
+
+  if (interactive) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        aria-label={`View ${label}`}
+        className={`${containerClasses} cursor-pointer text-left transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black-olive focus-visible:ring-offset-2`}
+      >
+        {content}
+      </button>
     );
   }
 
-  const styles = toneStyles[tone];
-
   return (
     <div
-      role="img"
-      aria-label={`Placeholder: ${label}`}
-      className={`relative overflow-hidden border ${styles.surface} ${styles.border} ${className}`}
+      role={src ? undefined : "img"}
+      aria-label={src ? undefined : `Placeholder: ${label}`}
+      className={containerClasses}
     >
-      <div className={`absolute inset-0 ${styles.wash}`} />
-
-      <div className="absolute inset-5 flex flex-col justify-between">
-        <div className="flex justify-between">
-          <span className={`h-4 w-px ${styles.tick}`} />
-          <span className={`h-4 w-px ${styles.tick}`} />
-        </div>
-        <div className="flex justify-between">
-          <span className={`h-4 w-px ${styles.tick}`} />
-          <span className={`h-4 w-px ${styles.tick}`} />
-        </div>
-      </div>
-
-      <div className="relative flex h-full flex-col items-center justify-center gap-2 px-8 text-center">
-        <p className={`text-label ${styles.secondaryText}`}>
-          {kind === "video" ? "Video" : "Image"} placeholder
-        </p>
-        <p className={`text-h3 font-secondary ${styles.primaryText}`}>{label}</p>
-        {detail ? (
-          <p className={`max-w-sm text-sm font-secondary ${styles.secondaryText}`}>
-            {detail}
-          </p>
-        ) : null}
-      </div>
+      {content}
     </div>
   );
 }
