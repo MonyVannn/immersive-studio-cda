@@ -93,7 +93,7 @@ export const desktopNav: DesktopNavItem[] = [
   {
     label: "The Studio",
     links: [
-      { label: "Membership", href: "/#studio-memberships" },
+      { label: "Membership", href: "/membership" },
       { label: "Vendor Showcase", href: "/#vendor-showcase" },
     ],
   },
@@ -124,7 +124,7 @@ export const navGroups: NavGroup[] = [
     label: "The Studio",
     links: [
       { label: "The Studio", href: "/#the-studio" },
-      { label: "Membership", href: "/#studio-memberships" },
+      { label: "Membership", href: "/membership" },
       { label: "Vendor Showcase", href: "/#vendor-showcase" },
     ],
   },
@@ -227,16 +227,14 @@ export const founder = {
 } as const;
 
 export const studioMemberships = {
-  eyebrow: "Studio Memberships",
-  headline: "Add Immersive Visualization to Your Client Experience.",
+  eyebrow: "Full Scale. Full Clarity.",
+  headline: "Step inside your building before it exists.",
   paragraphs: [
-    "Studio Memberships give architects, builders, designers, and creative professionals an ongoing way to integrate Immersive Studio CDA into their process—and their client experience.",
-    "Beyond full-scale visualization sessions, membership experiences may include access to the studio bar, conference spaces, and a curated vendor showcase where materials, textures, fixtures, lighting, and finishes can be evaluated in context.",
-    "It's a professional home base for bringing clients together, presenting ideas with impact, and making consequential decisions easier.",
+    "Even good drawings are hard to picture. Clients sign off on spaces they haven't truly experienced, then change them mid-build.",
   ],
   cta: {
-    label: "Become a Founding Member",
-    href: "/contact",
+    label: "Learn more",
+    href: "/membership",
   },
 } as const;
 
@@ -301,10 +299,75 @@ export const privateEvents = {
   ],
 } as const;
 
-export const about = {
-  eyebrow: "Founding Studio Partners",
-  headline: "Make Immersion Part of Your Signature Process.",
-  body: "A limited professional relationship for builders, architects, designers, and creative firms seeking ongoing access to the studio. CDA Immersive Studio is being built in relationship with the professionals shaping what comes next in North Idaho and the surrounding region. Studio partnerships are intended for firms that see immersive presentation as more than an occasional tool. Founding partnerships are intentionally limited to preserve the quality and availability of the experience.",
+export const membershipPage = {
+  hero: {
+    eyebrow: "Studio Membership",
+    tagline: "Full Scale. Full Clarity.",
+    headline: "Step inside your building before it exists.",
+    sub: "1:1 projection of floor plans & elevations in downtown Coeur d'Alene",
+  },
+  stats: [
+    { value: "1:1", label: "True-Scale Floor & Elevation Projection" },
+    { value: "$5K to $25K", label: "Typical cost of one field change order" },
+    { value: "$900", label: "À la carte session: The cheapest insurance in construction" },
+  ],
+  narrative: "Even good drawings are hard to picture. Clients sign off on spaces they haven't truly experienced, then change them mid-build. At Immersive Studio, they step inside their future space at true 1:1 scale, projected across 2,800± sq ft of floor and a 50± ft wall. Design questions get answered while they're still erasable, and clients say yes with confidence.",
+  pricing: {
+    primary: {
+      price: "$1,800/mo",
+      title: "Three sessions every month",
+      details: [
+        "12-month membership, renewing in 12-month terms.",
+        "Three private sessions every month",
+        "Additional sessions at $600 each",
+        "Plan prep and projection programming included",
+      ],
+    },
+    secondary: {
+      price: "$600",
+      title: "Per Session",
+      details: [
+        "Vs $900 à la carte",
+        "Plan prep and projection programming included with every session",
+      ],
+    },
+  },
+  benefits: [
+    {
+      number: "01",
+      title: "3 immersive sessions monthly",
+      body: "$2,700 in session value, refreshed every month. Use them across any of your active projects.",
+    },
+    {
+      number: "02",
+      title: "Member rate on extras",
+      body: "Busy month? Add sessions anytime at $600 each instead of the $900 à la carte price.",
+    },
+    {
+      number: "03",
+      title: "Co-branded client hosting",
+      body: "Your clients experience it as your studio, with a private lounge for design change review meetings after each session.",
+    },
+    {
+      number: "04",
+      title: "Plan prep included",
+      body: "Send us your drawings and we handle the projection-ready conversion for every session. No extra fees.",
+    },
+    {
+      number: "05",
+      title: "Simple scheduling",
+      body: "Book your sessions online, seven days a week. Send drawings ahead and the floor is ready when you arrive.",
+    },
+    {
+      number: "06",
+      title: "Any project, any phase",
+      body: "New builds, remodels, and commercial spaces. Floor plans and elevations, from concept review to final client sign-off.",
+    },
+  ],
+  cta: {
+    label: "Become a member. Schedule a private demo on our floor.",
+    href: "/contact?category=Studio%20Membership",
+  },
 } as const;
 
 export type ContactDetail = {

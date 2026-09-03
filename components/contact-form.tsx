@@ -1,13 +1,17 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Toast } from "@/components/ui/toast";
 import { contactPage } from "@/lib/content/site";
 import { submitContactForm } from "@/app/(site)/contact/actions";
 
 const copy = contactPage.form;
 
-export function ContactForm() {
+function ContactFormInner() {
+  const searchParams = useSearchParams();
+  const defaultCategory = searchParams.get("category") ?? "";
+
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -76,7 +80,7 @@ export function ContactForm() {
           <select
             name="category"
             required
-            defaultValue=""
+            defaultValue={defaultCategory}
             className="border-b border-beige bg-transparent py-3 text-body font-primary text-onyx outline-none transition-colors focus:border-onyx"
           >
             <option value="" disabled>
@@ -113,5 +117,13 @@ export function ContactForm() {
         </button>
       </form>
     </>
+  );
+}
+
+export function ContactForm() {
+  return (
+    <Suspense fallback={<div className="h-[500px] w-full animate-pulse bg-beige/20 rounded-lg"></div>}>
+      <ContactFormInner />
+    </Suspense>
   );
 }
