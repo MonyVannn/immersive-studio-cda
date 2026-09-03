@@ -156,25 +156,32 @@ export function MembershipPageSection() {
 
             {/* CTA */}
             <div className="flex flex-col items-center gap-8 border-t border-beige pt-16 md:pt-24 text-center">
-              <Link
-                href={copy.cta.href}
-                className="cta text-label text-onyx/60 transition-colors hover:text-onyx"
-              >
-                <span
-                  aria-hidden
-                  className="block h-px w-10 bg-current transition-[width] duration-300"
-                />
-                {copy.cta.label}
-              </Link>
+              <div className="flex flex-col items-center gap-4">
+                <Link
+                  href={copy.cta.href}
+                  className="cta text-label text-onyx/60 transition-colors hover:text-onyx"
+                >
+                  <span
+                    aria-hidden
+                    className="block h-px w-10 bg-current transition-[width] duration-300"
+                  />
+                  {copy.cta.label}
+                </Link>
+                {copy.cta.supportingLine && (
+                  <p className="max-w-prose text-body font-primary text-onyx/60">
+                    {copy.cta.supportingLine}
+                  </p>
+                )}
+              </div>
               
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-body font-primary text-onyx/60">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-body font-primary text-onyx/60 mt-4">
                 <span>Jeremy Decker</span>
                 <span className="hidden md:inline">·</span>
                 <a href="mailto:contact@immersivestudiocda.com" className="hover:text-onyx transition-colors">contact@immersivestudiocda.com</a>
                 <span className="hidden md:inline">·</span>
                 <a href="https://immersivestudiocda.com" className="hover:text-onyx transition-colors">immersivestudiocda.com</a>
                 <span className="hidden md:inline">·</span>
-                <span>216 E Coeur d'Alene Ave</span>
+                <span>216 E Coeur d&apos;Alene Ave</span>
               </div>
             </div>
 

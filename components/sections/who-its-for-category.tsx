@@ -78,6 +78,25 @@ export function WhoItsForCategory({ audience }: { audience: Audience }) {
                 ))}
               </div>
 
+              {audience.details && (
+                <div className="mt-4 flex flex-col gap-6 border-t border-beige pt-8">
+                  <h3 className="text-h3 font-secondary text-onyx">
+                    {audience.details.title}
+                  </h3>
+                  <ul className="flex flex-col gap-4">
+                    {audience.details.items.map((item, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-4 text-body font-primary text-onyx/80"
+                      >
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-onyx/40" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {audience.cta && (
                 <Link
                   href={audience.cta.href}

@@ -38,6 +38,10 @@ export type Audience = {
   pageHeadline?: string;
   subheading?: string;
   paragraphs?: string[];
+  details?: {
+    title: string;
+    items: string[];
+  };
   cta?: { label: string; href: string };
   media?: {
     hero: AudienceMedia;
@@ -46,6 +50,7 @@ export type Audience = {
 };
 
 export const whoItsForPath = "/who-its-for";
+export const showcasePath = "/showcase";
 
 export const whoItsForPage = {
   eyebrow: "Who It's For",
@@ -59,12 +64,47 @@ export const audiences: Audience[] = [
     label: "Builders",
     headline: "Walk the job before the crew arrives.",
     body: "A set of drawings can still leave a client guessing. In the studio, builders walk clients through the plan at 1:1 — rooms, circulation, ceiling heights, and finish relationships — so decisions happen before they become change orders. It's a clearer way to present, align, and protect the build.",
+    pageEyebrow: "FOR BUILDERS",
+    subheading: "Give your clients a clear, tangible way to understand the project before construction begins.",
+    paragraphs: [
+      "Offer your clients a pre-construction experience unlike anything they have seen before. Walk through the project at full scale, evaluate important details, and make confident decisions before construction begins.",
+      "Identify potential issues early, reduce costly change orders and delays, and ensure everyone is aligned before a shovel ever hits the ground.",
+    ],
+    details: {
+      title: "Our space allows for:",
+      items: [
+        "Exact studio dimensions",
+        "Projection area",
+        "Supported plan sizes",
+        "Wall projection capabilities",
+        "Meeting and presentation features",
+        "Hospitality amenities",
+      ],
+    },
+    cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
+    media: {
+      hero: { label: "Pre-construction walkthrough" },
+      inline: { label: "Studio details and projection" },
+    },
   },
   {
     slug: "architects",
     label: "Architects",
     headline: "Let the space speak at full scale.",
     body: "Drawings and renderings describe intent. Walking the plan confirms it. Architects use the studio to put clients, consultants, and collaborators inside the design — proportion, sequence, light, and material — so the conversation happens in the space itself, not around a table.",
+    pageEyebrow: "FOR ARCHITECTS",
+    subheading: "Allow your clients to experience room sizes, transitions, circulation, and furnishings in real space before anything is built.",
+    paragraphs: [
+      "Architectural decisions feel different when they can be experienced at full scale.",
+      "CDA Immersive Studio’s 1:1 floor plan projection environment allows architecture teams to walk through life-size layouts in real space, making it easier to evaluate circulation, sightlines, clearances, proportions, and overall flow before documentation is finalized.",
+      "The studio is designed for collaborative review, bringing together architects, consultants, clients, and selected project partners. A curated vendor showcase also allows materials, fixtures, finishes, and lighting to be evaluated in context.",
+      "The result is a more engaging and productive decision-making process—one that can accelerate approvals, reduce late-stage revisions, and support a smoother transition from design development to construction-ready plans.",
+    ],
+    cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
+    media: {
+      hero: { label: "1:1 architectural projection" },
+      inline: { label: "Collaborative design review" },
+    },
   },
   {
     slug: "real-estate-professionals",
@@ -149,7 +189,7 @@ export const desktopNav: DesktopNavItem[] = [
     label: "The Studio",
     links: [
       { label: "Membership", href: "/membership" },
-      { label: "Vendor Showcase", href: "/#vendor-showcase" },
+      { label: "Vendor Showcase", href: showcasePath },
     ],
   },
   { label: "Information", links: pageLinks },
@@ -180,7 +220,7 @@ export const navGroups: NavGroup[] = [
     links: [
       { label: "The Studio", href: "/#the-studio" },
       { label: "Membership", href: "/membership" },
-      { label: "Vendor Showcase", href: "/#vendor-showcase" },
+      { label: "Vendor Showcase", href: showcasePath },
     ],
   },
 ];
@@ -354,19 +394,41 @@ export const privateEvents = {
   ],
 } as const;
 
+export const showcasePage = {
+  eyebrow: "CURATED FOR THE BUILT ENVIRONMENT",
+  headline: "Experience Design Selections in Context.",
+  subheading: "A curated showcase of premium materials, fixtures, finishes, lighting, furnishings, and building products.",
+  paragraphs: [
+    "Immersive Studio CDA's vendor showcase allows clients and project teams to compare design selections within the context of the full-scale environment they are intended for.",
+    "Rather than choosing from isolated samples alone, guests can experience how materials, textures, lighting, and finishes relate to the broader design vision.",
+  ],
+  vendorCta: {
+    label: "Join the Vendor Waitlist",
+    href: "/contact?category=Vendor%20Opportunities",
+  },
+  clientCta: {
+    label: "Explore the Showcase",
+    href: "/contact?category=Booking%20a%20Session",
+  },
+  media: {
+    hero: { label: "Vendor showcase", detail: "Materials and finishes in full-scale context" },
+    inline: { label: "Design selections", detail: "Fixtures, lighting, and building products on display" },
+  },
+} as const;
+
 export const membershipPage = {
   hero: {
-    eyebrow: "Studio Membership",
+    eyebrow: "FOUNDING STUDIO PARTNERS",
     tagline: "Full Scale. Full Clarity.",
-    headline: "Step inside your building before it exists.",
-    sub: "1:1 projection of floor plans & elevations in downtown Coeur d'Alene",
+    headline: "Make Immersion Part of Your Signature Process.",
+    sub: "A limited professional relationship for builders, architects, designers, and creative firms seeking ongoing access to the studio.",
   },
   stats: [
     { value: "1:1", label: "True-Scale Floor & Elevation Projection" },
     { value: "$5K to $25K", label: "Typical cost of one field change order" },
     { value: "$900", label: "À la carte session: The cheapest insurance in construction" },
   ],
-  narrative: "Even good drawings are hard to picture. Clients sign off on spaces they haven't truly experienced, then change them mid-build. At Immersive Studio, they step inside their future space at true 1:1 scale, projected across 2,800± sq ft of floor and a 50± ft wall. Design questions get answered while they're still erasable, and clients say yes with confidence.",
+  narrative: "CDA Immersive Studio is being built in relationship with the professionals shaping what comes next in North Idaho and the surrounding region. Studio partnerships are intended for firms that see immersive presentation as more than an occasional tool. Partners can integrate the studio into client onboarding, design review, project development, team collaboration, and special presentations throughout the year. The result is a differentiated experience that becomes part of how your firm works—and how your clients remember working with you.",
   pricing: {
     primary: {
       price: "$1,800/mo",
@@ -420,8 +482,9 @@ export const membershipPage = {
     },
   ],
   cta: {
-    label: "Become a member. Schedule a private demo on our floor.",
+    label: "Request Founding Partner Details",
     href: "/contact?category=Studio%20Membership",
+    supportingLine: "Founding partnerships are intentionally limited to preserve the quality and availability of the experience.",
   },
 } as const;
 
