@@ -383,7 +383,7 @@ export const foundingStudioPartners = {
 
 export const ourLocation = {
   eyebrow: "Our Location",
-  headline: "Historic Character. Downtown Coeur d'Alene.",
+  headline: "Historic Character in Downtown Coeur d'Alene ",
   body: "Immersive Studio CDA is located at 216 E. Coeur d'Alene Ave, inside a historic railroad building in the heart of downtown Coeur d'Alene. Rich with original character and architectural presence, the building offers a distinctive setting for the studio - just steps from Sherman Avenue and four blocks from Lake Coeur d'Alene. Surrounded by downtown's restaurants, hotels, galleries, and shops, it's a natural place to meet with clients, gather a project team, and make a day of the experience.",
   stats: [
     { value: "Steps", label: "from Sherman Avenue" },
@@ -405,7 +405,10 @@ export const ourLocation = {
 export const privateEvents = {
   eyebrow: "Private Events",
   headline: "Gather Inside Something Unforgettable.",
-  body: "A private immersive setting for presentations, launches, dinners, creative gatherings, and intimate events. CDA Immersive Studio can transform around the purpose of the gathering. Host a private presentation surrounded by the work. Introduce a new idea through image, sound, and atmosphere. Bring a team together inside a shared visual environment. Create a dinner, conversation, performance, or celebration that could not happen in a conventional venue. Our event experiences are intentionally selective and developed in collaboration with each host.",
+  paragraphs: [
+    "A private immersive setting for presentations, launches, dinners, creative gatherings, and intimate events.",
+    "Immersive Studio CDA can transform around the purpose of the gathering. Introduce a new idea through image, sound, and atmosphere. Bring a team together inside a shared visual environment. Create a dinner, conversation, performance, or celebration that could not happen in a conventional venue. Our event experiences are intentionally selective and developed in collaboration with each host.",
+  ],
   cta: {
     label: "Reach Out to Explore Event Opportunities",
     href: "/contact",

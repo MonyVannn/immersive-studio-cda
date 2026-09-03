@@ -21,7 +21,11 @@ export function PrivateEvents() {
             </p>
           </div>
           <div className="flex max-w-md flex-col gap-6">
-            <p className="text-body font-primary text-onyx/70">{copy.body}</p>
+            {copy.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-body font-primary text-onyx/70">
+                {paragraph}
+              </p>
+            ))}
             <Link
               href={copy.cta.href}
               className="cta text-label text-onyx/60 transition-colors hover:text-onyx"
