@@ -173,6 +173,7 @@ export function getAudience(slug: string) {
 }
 
 export const pageLinks: NavLink[] = [
+  { label: "FAQ", href: "/faq" },
   { label: "Founder Story", href: "/founder-story" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -192,7 +193,7 @@ export const desktopNav: DesktopNavItem[] = [
       { label: "Vendor Showcase", href: showcasePath },
     ],
   },
-  { label: "Information", links: pageLinks },
+  { label: "Information", links: pageLinks.filter((link) => link.label !== "FAQ") },
 ];
 
 export const navGroups: NavGroup[] = [
@@ -555,5 +556,68 @@ export const contactPage = {
     submitLabel: "Send Message",
     successMessage:
       "Thank you for your message. Someone from our team will be in touch with you soon",
+  },
+} as const;
+
+export type FaqItem = { question: string; answer: string };
+export type FaqCategory = { title: string; items: FaqItem[] };
+
+export const faqPage = {
+  eyebrow: "FAQ",
+  headline: "Frequently Asked Questions",
+  body: "Answers to common questions about the studio, sessions, memberships, and events.",
+  categories: [
+    {
+      title: "The Studio",
+      items: [
+        {
+          question: "What can be experienced in the studio?",
+          answer: "The studio can present architectural floor plans, elevations, renderings, imagery, film, presentations, branded environments, and original immersive content across the floor and surrounding walls. The exact experience depends on the project and available source material."
+        },
+        {
+          question: "Can plans be displayed at full scale?",
+          answer: "Yes. Architectural floor plans can be prepared and projected at a true 1:1 scale, allowing guests to move through the layout and experience spatial relationships directly."
+        },
+        {
+          question: "Is CDA Immersive Studio only for architecture?",
+          answer: "No. Architecture is a primary use of the studio, but the environment can also support creative presentations, visual storytelling, installations, launches, team experiences, educational programming, and select private events."
+        }
+      ],
+    },
+    {
+      title: "Planning a Session",
+      items: [
+        {
+          question: "Do I need specially prepared files?",
+          answer: "Not necessarily. Begin by sending us what you currently have. Depending on the experience, this may include PDF plans, CAD exports, elevations, renderings, images, video, or presentation files. Our team will review the material and explain what is needed next."
+        },
+        {
+          question: "Who should attend an architectural session?",
+          answer: "The most valuable sessions often include the people making or influencing key decisions: the client, builder, architect, designer, and selected project partners. We will help you choose the appropriate group for the purpose of your session."
+        },
+        {
+          question: "When should we visit during the design process?",
+          answer: "The studio can support multiple stages, from early concept exploration through detailed design review. The ideal timing depends on the decisions you want to make and the maturity of the project files."
+        }
+      ],
+    },
+    {
+      title: "Membership & Events",
+      items: [
+        {
+          question: "Can the studio host private or professional events?",
+          answer: "Yes. Private event opportunities are considered individually to ensure the room, content, and experience are well matched to the gathering."
+        },
+        {
+          question: "Do you offer professional memberships?",
+          answer: "CDA Immersive Studio is developing a limited founding partner program for builders, architects, designers, and creative firms seeking recurring studio access. Partnership details are available by request."
+        }
+      ],
+    },
+  ],
+  cta: {
+    label: "Contact us",
+    href: "/contact",
+    supportingLine: "Still have questions? We'd love to hear from you.",
   },
 } as const;
