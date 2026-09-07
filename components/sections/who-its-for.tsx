@@ -23,15 +23,18 @@ export function WhoItsFor() {
 
         <nav
           aria-label="Audiences"
-          className="flex flex-col gap-4 lg:w-1/2 lg:pt-16"
+          className="flex flex-col gap-8 lg:w-1/2 lg:pt-16"
         >
           {audiences.map((audience) => (
             <Link
               key={audience.slug}
               href={audiencePath(audience.slug)}
-              className="inline-block w-fit origin-left text-h1 font-secondary text-onyx transition-transform duration-500 ease-out hover:scale-[1.03] motion-reduce:transition-none motion-reduce:hover:scale-100"
+              className="group flex w-fit origin-left items-center gap-6 transition-transform duration-500 ease-out hover:scale-[1.03] motion-reduce:transition-none motion-reduce:hover:scale-100"
             >
-              {audience.label}
+              <span className="h-2 w-2 shrink-0 bg-onyx/40 transition-colors group-hover:bg-onyx" />
+              <span className="text-h1 font-secondary text-onyx">
+                {audience.label}
+              </span>
             </Link>
           ))}
         </nav>

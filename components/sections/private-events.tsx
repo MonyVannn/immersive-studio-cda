@@ -1,10 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 import { privateEvents as copy } from "@/lib/content/site";
-
-const featuredImage = copy.slides[0];
+import { AutoplayCarousel } from "@/components/ui/autoplay-carousel";
 
 export function PrivateEvents() {
+  const slides = copy.slides.map((slide) => {
+    const s = slide as any;
+    return {
+      src: s.src,
+      alt: s.alt || s.label,
+    };
+  });
+
   return (
     <section
       id="private-events"
@@ -39,15 +45,7 @@ export function PrivateEvents() {
           </div>
         </div>
 
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-onyx/10">
-          <Image
-            src={featuredImage.src}
-            alt={featuredImage.alt}
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
+        <AutoplayCarousel slides={slides} />
       </div>
     </section>
   );

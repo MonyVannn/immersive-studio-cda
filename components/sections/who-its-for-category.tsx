@@ -26,7 +26,7 @@ export function WhoItsForCategory({ audience }: { audience: Audience }) {
               </p>
             </div>
 
-            <h1 className="max-w-4xl whitespace-pre-line text-display font-secondary text-onyx">
+            <h1 className="max-w-4xl whitespace-pre-line text-h2 font-secondary text-onyx">
               {audience.pageHeadline ?? audience.subheading}
             </h1>
 
@@ -130,7 +130,7 @@ export function WhoItsForCategory({ audience }: { audience: Audience }) {
           <p className="text-label text-black-olive">{audience.label}</p>
         </div>
 
-        <h1 className="max-w-4xl text-display font-secondary text-onyx">
+        <h1 className="max-w-4xl text-h2 font-secondary text-onyx">
           {audience.headline}
         </h1>
         <p className="max-w-prose text-body font-primary text-onyx/80">

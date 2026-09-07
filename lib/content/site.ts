@@ -93,8 +93,8 @@ export const audiences: Audience[] = [
     },
     cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
     media: {
-      hero: { label: "Pre-construction walkthrough" },
-      inline: { label: "Studio details and projection" },
+      hero: { label: "Pre-construction walkthrough", src: "/assets/who-is-it-for/builder/main-image.jpg" },
+      inline: { label: "Studio details and projection", src: "/assets/who-is-it-for/builder/second-image.jpg" },
     },
   },
   {
@@ -112,8 +112,8 @@ export const audiences: Audience[] = [
     ],
     cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
     media: {
-      hero: { label: "1:1 architectural projection" },
-      inline: { label: "Collaborative design review" },
+      hero: { label: "1:1 architectural projection", src: "/assets/who-is-it-for/architech/main-image.jpg" },
+      inline: { label: "Collaborative design review", src: "/assets/who-is-it-for/architech/second-image.jpg" },
     },
   },
   {
@@ -130,8 +130,8 @@ export const audiences: Audience[] = [
     ],
     cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
     media: {
-      hero: { label: "Property comparison at 1:1 scale" },
-      inline: { label: "Multi-plan studio session" },
+      hero: { label: "Property comparison at 1:1 scale", src: "/assets/who-is-it-for/realtor/main-image.jpg" },
+      inline: { label: "Multi-plan studio session", src: "/assets/who-is-it-for/realtor/second-image.jpg" },
     },
   },
   {
@@ -148,8 +148,8 @@ export const audiences: Audience[] = [
     ],
     cta: { label: "Propose a Creative Experience", href: "/contact?category=Private%20Events" },
     media: {
-      hero: { label: "Immersive creative environment" },
-      inline: { label: "Audience inside the experience" },
+      hero: { label: "Immersive creative environment", src: "/assets/who-is-it-for/experience-creator/main-image.jpg" },
+      inline: { label: "Audience inside the experience", src: "/assets/who-is-it-for/experience-creator/second-image.png" },
     },
   },
   {
@@ -168,8 +168,8 @@ export const audiences: Audience[] = [
     ],
     cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
     media: {
-      hero: { label: "Future home at full scale" },
-      inline: { label: "Room flow and layout review" },
+      hero: { label: "Future home at full scale", src: "/assets/who-is-it-for/homeowner/main-image.jpg" },
+      inline: { label: "Room flow and layout review", src: "/assets/who-is-it-for/homeowner/second-image.jpg" },
     },
   },
 ];
@@ -230,7 +230,7 @@ export const navGroups: NavGroup[] = [
     label: "The Studio",
     links: [
       { label: "The Studio", href: "/#the-studio" },
-      { label: "Membership", href: "/#founding-partners" },
+      { label: "Membership", href: "/membership" },
       { label: "Vendor Showcase", href: showcasePath },
     ],
   },
@@ -316,7 +316,6 @@ export const founder = {
   headline: "Meet our Founder",
   name: "Jeremy Decker",
   title: "Founder",
-  experience: "25+ years in construction and design across North Idaho",
   paragraphs: [
     "Immersive Studio CDA was founded by Jeremy Decker, a construction and design professional with more than 25 years of experience bringing projects from concept to completion.",
     "Jeremy began his career in the field, working his way from labor and finish carpentry into project management, home design, and eventually business ownership. For 13 years, he owned and operated his own construction company, developing a firsthand understanding of every stage of the building process.",

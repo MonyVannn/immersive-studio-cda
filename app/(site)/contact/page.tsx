@@ -21,11 +21,11 @@ export default function ContactPage() {
             {copy.body}
           </p>
 
-          <dl className="mt-2 flex flex-col divide-y divide-beige border-t border-beige">
+          <dl className="mt-6 flex flex-col gap-6">
             {contact.details.map((detail) => (
               <div
                 key={detail.label}
-                className="flex items-baseline justify-between gap-6 py-4"
+                className="flex items-baseline justify-between gap-6"
               >
                 <dt className="text-label text-dove">{detail.label}</dt>
                 <dd className="text-right text-body font-primary text-onyx">

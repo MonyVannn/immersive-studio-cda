@@ -34,11 +34,11 @@ export function FounderIntroduction() {
               {copy.paragraphs.map((paragraph, index) => (
                 <p
                   key={paragraph}
-                  className={
+                  className={`max-w-4xl text-xl leading-relaxed ${
                     index === 0
-                      ? "max-w-4xl text-h2 font-secondary text-off-white"
-                      : "max-w-4xl text-body font-primary text-off-white/75"
-                  }
+                      ? "font-bold font-primary text-off-white"
+                      : "font-primary text-off-white/75"
+                  }`}
                 >
                   {paragraph}
                 </p>
@@ -48,7 +48,6 @@ export function FounderIntroduction() {
             <footer className="flex flex-col gap-1 pt-4">
               <p className="text-body font-primary text-off-white">{copy.name}</p>
               <p className="text-sm font-secondary text-off-white/60">{copy.title}</p>
-              <p className="text-sm font-secondary text-off-white/50">{copy.experience}</p>
             </footer>
           </div>
         </div>

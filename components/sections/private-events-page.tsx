@@ -1,10 +1,19 @@
 import Link from "next/link";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { privateEventsPage as copy } from "@/lib/content/site";
-import { EventGallery } from "@/components/sections/event-gallery";
+import { AutoplayCarousel } from "@/components/ui/autoplay-carousel";
 
 export function PrivateEventsPageSection() {
-  const { gallery } = copy;
+  // Filter out any items that don't have a source (which were the placeholders)
+  const slides = copy.gallery
+    .filter((item) => "src" in item)
+    .map((item) => {
+      const srcItem = item as { src: string; alt?: string; label: string };
+      return {
+        src: srcItem.src,
+        alt: srcItem.alt || srcItem.label,
+      };
+    });
 
   return (
     <section className="scroll-mt-28 bg-off-white px-site pb-24 pt-52 md:pb-32 md:pt-64">
@@ -21,7 +30,8 @@ export function PrivateEventsPageSection() {
           </p>
         </div>
 
-        <EventGallery gallery={gallery} />
+        {/* Carousel replacing the previous static EventGallery */}
+        <AutoplayCarousel slides={slides} />
 
         {/* Bottom CTA */}
         <div className="flex max-w-4xl flex-col items-start gap-4 border-t border-beige pt-16">

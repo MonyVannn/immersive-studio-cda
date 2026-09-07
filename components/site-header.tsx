@@ -321,7 +321,7 @@ export function SiteHeader() {
               width={brand.logo.width}
               height={brand.logo.height}
               priority
-              className={`h-12 w-auto transition-opacity duration-500 md:h-24 ${
+              className={`h-12 w-auto transition-opacity duration-500 md:h-28 ${
                 scrolled ? "opacity-0" : "opacity-100"
               }`}
             />
