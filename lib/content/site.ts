@@ -345,8 +345,8 @@ export const studioMemberships = {
 } as const;
 
 export const foundingStudioPartners = {
-  eyebrow: "FOUNDING STUDIO PARTNERS",
-  headline: "Make Immersion Part of Your Signature Process.",
+  eyebrow: "Make Immersion a Part of Your Signature Process",
+  headline: "Founding Studio Partners",
   subheading: "A limited professional relationship for builders, architects, designers, and creative firms seeking ongoing access to the studio.",
   paragraphs: [
     "CDA Immersive Studio is being built in relationship with the professionals shaping what comes next in North Idaho and the surrounding region.",

@@ -7,9 +7,9 @@ export function HowItWorks() {
       className="scroll-mt-28 bg-off-white px-site pt-8 pb-24 md:pt-10 md:pb-32"
     >
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16">
-        <p className="mx-auto w-full max-w-6xl text-center text-label text-dove lg:px-8">
+        <h2 className="mx-auto w-full max-w-6xl text-center text-h2 font-secondary text-onyx lg:px-8">
           {copy.eyebrow}
-        </p>
+        </h2>
 
         <ol className="grid gap-6 md:grid-cols-5 md:gap-6">
           {copy.steps.map((step) => (

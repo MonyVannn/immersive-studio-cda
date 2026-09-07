@@ -15,8 +15,8 @@ export function Hero() {
         />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-onyx/30" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-onyx from-[8%] via-onyx/70 via-45% to-onyx/45" />
+      <div className="pointer-events-none absolute inset-0 bg-onyx/10" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-onyx/90 from-[5%] via-onyx/40 via-45% to-transparent" />
 
       <div className="relative mx-auto flex w-full max-w-[110rem] flex-col gap-6 px-site pb-16 pt-40 animate-hero-copy motion-reduce:animate-none md:pb-24">
         <p className="text-label text-off-white/60">{hero.eyebrow}</p>
