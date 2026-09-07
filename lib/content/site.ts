@@ -532,36 +532,15 @@ export const showcasePage = {
 export const membershipPage = {
   hero: {
     eyebrow: "FOUNDING STUDIO PARTNERS",
-    tagline: "Full Scale. Full Clarity.",
-    headline: "Make Immersion Part of Your Signature Process.",
-    sub: "A limited professional relationship for builders, architects, designers, and creative firms seeking ongoing access to the studio.",
+    headline: "Step inside your building before it exists.",
+    sub: "1:1 projection of floor plans & elevations in downtown Coeur d’Alene",
   },
   stats: [
     { value: "1:1", label: "True-Scale Floor & Elevation Projection" },
     { value: "$5K to $25K", label: "Typical cost of one field change order" },
     { value: "$900", label: "À la carte session: The cheapest insurance in construction" },
   ],
-  narrative: "CDA Immersive Studio is being built in relationship with the professionals shaping what comes next in North Idaho and the surrounding region. Studio partnerships are intended for firms that see immersive presentation as more than an occasional tool. Partners can integrate the studio into client onboarding, design review, project development, team collaboration, and special presentations throughout the year. The result is a differentiated experience that becomes part of how your firm works—and how your clients remember working with you.",
-  pricing: {
-    primary: {
-      price: "$1,800/mo",
-      title: "Three sessions every month",
-      details: [
-        "12-month membership, renewing in 12-month terms.",
-        "Three private sessions every month",
-        "Additional sessions at $600 each",
-        "Plan prep and projection programming included",
-      ],
-    },
-    secondary: {
-      price: "$600",
-      title: "Per Session",
-      details: [
-        "Vs $900 à la carte",
-        "Plan prep and projection programming included with every session",
-      ],
-    },
-  },
+  narrative: "Even good drawings are hard to picture. Clients sign off on spaces they haven’t truly experienced, then change them mid-build. At Immersive Studio, they step inside their future space at true 1:1 scale, projected across 2,800± sq ft of floor and a 50± ft wall. Design questions get answered while they’re still erasable, and clients say yes with confidence.",
   benefits: [
     {
       number: "01",

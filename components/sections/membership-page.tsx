@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { PlaceholderMedia } from "@/components/placeholder-media";
 import { membershipPage as copy } from "@/lib/content/site";
@@ -8,22 +9,41 @@ export function MembershipPageSection() {
     <>
       <ScrollToTop />
       <div className="flex flex-col">
-        {/* Top light section: Hero, Stats, Narrative */}
-        <section className="bg-off-white px-site pt-52 md:pt-64 pb-24 md:pb-32">
+        {/* Hero Section */}
+        <section className="relative flex min-h-svh items-end overflow-hidden bg-onyx">
+          <div className="absolute inset-0 animate-hero-zoom motion-reduce:animate-none">
+            <Image
+              src="/assets/membership/hero-membership.jpeg"
+              alt="Membership Hero"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[center_42%] brightness-[0.82] contrast-[1.12]"
+            />
+          </div>
+
+          <div className="pointer-events-none absolute inset-0 bg-onyx/10" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-onyx/90 from-[5%] via-onyx/40 via-45% to-transparent" />
+
+          <div className="relative mx-auto flex w-full max-w-[110rem] flex-col gap-6 px-site pb-16 pt-40 animate-hero-copy motion-reduce:animate-none md:pb-24">
+            <p className="text-label text-off-white/60">{copy.hero.eyebrow}</p>
+            <h1 className="text-display font-secondary text-off-white">
+              {copy.hero.headline}
+            </h1>
+            <p className="max-w-xl text-body font-primary text-off-white/75">
+              {copy.hero.sub}
+            </p>
+          </div>
+        </section>
+
+        {/* Narrative and Stats Section */}
+        <section className="bg-off-white px-site pt-24 md:pt-32 pb-24 md:pb-32">
           <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16 md:gap-24">
             
-            {/* Hero */}
-            <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-3">
-                <p className="text-label text-dove">{copy.hero.eyebrow}</p>
-                <p className="text-label text-black-olive">{copy.hero.tagline}</p>
-              </div>
-
-              <h1 className="max-w-4xl text-display font-secondary text-onyx">
-                {copy.hero.headline}
-              </h1>
-              <p className="max-w-prose text-body font-primary text-onyx/80">
-                {copy.hero.sub}
+            {/* Narrative */}
+            <div className="flex justify-center">
+              <p className="max-w-prose text-h3 font-primary leading-relaxed text-onyx/90 text-center">
+                {copy.narrative}
               </p>
             </div>
 
@@ -42,54 +62,6 @@ export function MembershipPageSection() {
               ))}
             </div>
 
-            {/* Narrative */}
-            <div className="flex justify-center border-t border-beige pt-16 md:pt-24">
-              <p className="max-w-prose text-h3 font-primary leading-relaxed text-onyx/90 text-center">
-                {copy.narrative}
-              </p>
-            </div>
-
-          </div>
-        </section>
-
-        {/* Dark Section: Pricing */}
-        <section className="bg-onyx px-site py-24 md:py-32 text-off-white">
-          <div className="mx-auto w-full max-w-[110rem]">
-            <div className="grid gap-8 md:grid-cols-2 lg:gap-16">
-              
-              {/* Primary Pricing */}
-              <div className="flex flex-col gap-8 border border-off-white/10 bg-off-white/5 p-8 md:p-12">
-                <div className="flex flex-col gap-2">
-                  <p className="text-display font-secondary">{copy.pricing.primary.price}</p>
-                  <p className="text-label text-dove">{copy.pricing.primary.title}</p>
-                </div>
-                <ul className="flex flex-col gap-4 border-t border-off-white/10 pt-8">
-                  {copy.pricing.primary.details.map((detail) => (
-                    <li key={detail} className="flex gap-4 items-start text-body font-primary text-off-white/80">
-                      <span className="text-off-white mt-1.5 h-1.5 w-1.5 shrink-0 bg-current" />
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Secondary Pricing */}
-              <div className="flex flex-col gap-8 border border-off-white/10 bg-transparent p-8 md:p-12">
-                <div className="flex flex-col gap-2">
-                  <p className="text-display font-secondary">{copy.pricing.secondary.price}</p>
-                  <p className="text-label text-dove">{copy.pricing.secondary.title}</p>
-                </div>
-                <ul className="flex flex-col gap-4 border-t border-off-white/10 pt-8">
-                  {copy.pricing.secondary.details.map((detail) => (
-                    <li key={detail} className="flex gap-4 items-start text-body font-primary text-off-white/80">
-                      <span className="text-off-white mt-1.5 h-1.5 w-1.5 shrink-0 bg-current" />
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-            </div>
           </div>
         </section>
 
@@ -99,6 +71,11 @@ export function MembershipPageSection() {
             
             {/* Benefits */}
             <div className="flex flex-col gap-24">
+              {/* Eyebrow */}
+              <div className="flex justify-center">
+                <p className="text-label text-dove">STUDIO MEMBER BENEFITS</p>
+              </div>
+
               {/* Row 1 */}
               <div className="grid gap-12 md:grid-cols-2 lg:gap-24 items-center">
                 <div className="aspect-[4/3] w-full shrink-0">
@@ -159,29 +136,15 @@ export function MembershipPageSection() {
               <div className="flex flex-col items-center gap-4">
                 <Link
                   href={copy.cta.href}
-                  className="cta text-label text-onyx/60 transition-colors hover:text-onyx"
+                  className="bg-onyx text-off-white px-8 py-4 text-label transition-opacity hover:opacity-90"
                 >
-                  <span
-                    aria-hidden
-                    className="block h-px w-10 bg-current transition-[width] duration-300"
-                  />
                   {copy.cta.label}
                 </Link>
                 {copy.cta.supportingLine && (
-                  <p className="max-w-prose text-body font-primary text-onyx/60">
+                  <p className="max-w-prose text-body font-primary text-onyx/60 mt-4">
                     {copy.cta.supportingLine}
                   </p>
                 )}
-              </div>
-              
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-body font-primary text-onyx/60 mt-4">
-                <span>Jeremy Decker</span>
-                <span className="hidden md:inline">·</span>
-                <a href="mailto:contact@immersivestudiocda.com" className="hover:text-onyx transition-colors">contact@immersivestudiocda.com</a>
-                <span className="hidden md:inline">·</span>
-                <a href="https://immersivestudiocda.com" className="hover:text-onyx transition-colors">immersivestudiocda.com</a>
-                <span className="hidden md:inline">·</span>
-                <span>216 E Coeur d&apos;Alene Ave</span>
               </div>
             </div>
 
