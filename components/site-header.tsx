@@ -14,7 +14,7 @@ import {
 } from "@/lib/content/site";
 
 const navLinkClassName =
-  "text-base font-primary leading-7 text-off-white/75 transition-colors hover:text-off-white";
+  "text-base font-primary leading-7 text-current/75 transition-colors hover:text-current";
 
 function parseRgba(
   color: string,
@@ -39,28 +39,50 @@ function parseRgba(
 
 function isLightColor(color: string): boolean | null {
   const rgba = parseRgba(color);
-  if (!rgba || rgba.a < 0.2) return null;
+  if (rgba) {
+    if (rgba.a < 0.2) return null;
+    const luminance = (0.2126 * rgba.r + 0.7152 * rgba.g + 0.0722 * rgba.b) / 255;
+    return luminance > 0.45;
+  }
 
-  const luminance = (0.2126 * rgba.r + 0.7152 * rgba.g + 0.0722 * rgba.b) / 255;
-  return luminance > 0.45;
+  const lab = color.match(/^oklab\(\s*([\d.]+%?)/i) ?? color.match(/^lab\(\s*([\d.]+%?)/i);
+  if (!lab) return null;
+
+  const alphaMatch = color.match(/\/\s*([\d.]+%?)\s*\)/);
+  const alpha =
+    alphaMatch === null
+      ? 1
+      : alphaMatch[1].endsWith("%")
+        ? Number(alphaMatch[1].slice(0, -1)) / 100
+        : Number(alphaMatch[1]);
+  if (alpha < 0.2) return null;
+
+  const raw = lab[1];
+  const value = raw.endsWith("%") ? Number(raw.slice(0, -1)) : Number(raw);
+  const lightness = color.startsWith("oklab") || color.startsWith("OKLab") ? value : value / 100;
+  return lightness > 0.45;
 }
 
-function isOverLightSurface(header: HTMLElement): boolean {
-  const x = Math.min(Math.max(window.innerWidth / 2, 0), window.innerWidth - 1);
-  const y = Math.min(header.getBoundingClientRect().bottom + 4, window.innerHeight - 1);
-  const previous = header.style.pointerEvents;
-  header.style.pointerEvents = "none";
-  const target = document.elementFromPoint(x, Math.max(y, 0));
-  header.style.pointerEvents = previous;
+function isOverLightAt(header: HTMLElement, x: number, y: number): boolean {
+  const sampleX = Math.min(Math.max(x, 0), window.innerWidth - 1);
+  const sampleY = Math.min(Math.max(y, 0), window.innerHeight - 1);
 
-  let node: Element | null = target;
-  while (node && node !== document.documentElement) {
+  for (const node of document.elementsFromPoint(sampleX, sampleY)) {
+    if (header.contains(node)) continue;
     const light = isLightColor(getComputedStyle(node).backgroundColor);
     if (light !== null) return light;
-    node = node.parentElement;
   }
 
   return true;
+}
+
+function isOverLightSurface(header: HTMLElement, el?: HTMLElement | null): boolean {
+  const rect = (el ?? header).getBoundingClientRect();
+  return isOverLightAt(
+    header,
+    rect.left + Math.min(24, rect.width / 2),
+    rect.top + rect.height / 2,
+  );
 }
 
 function NavSubsectionList({
@@ -117,7 +139,7 @@ function NavSubsectionList({
                 <Link
                   href={link.href}
                   onClick={onNavigate}
-                  className="whitespace-nowrap text-[0.9375rem] font-primary leading-6 text-off-white/70 transition-colors hover:text-off-white"
+                  className="whitespace-nowrap text-[0.9375rem] font-primary leading-6 text-current/70 transition-colors hover:text-current"
                 >
                   {link.label}
                 </Link>
@@ -186,33 +208,57 @@ function NavGroupLinks({
 export function SiteHeader() {
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const burgerRef = useRef<HTMLButtonElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [surface, setSurface] = useState({
     pathname,
-    overLight: pathname !== "/",
+    logoOverLight: pathname !== "/",
+    burgerOverLight: pathname !== "/",
   });
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     const header = headerRef.current;
     if (!header) return;
 
-    const frame = requestAnimationFrame(() => {
-      setMenuOpen(false);
-      setSurface({
-        pathname,
-        overLight: isOverLightSurface(header),
+    let frame = 0;
+
+    const update = () => {
+      setScrolled(window.scrollY > 24);
+      const logoOverLight = isOverLightSurface(header, logoRef.current);
+      const burgerOverLight = isOverLightSurface(header, burgerRef.current);
+      setSurface((current) =>
+        current.pathname === pathname &&
+        current.logoOverLight === logoOverLight &&
+        current.burgerOverLight === burgerOverLight
+          ? current
+          : { pathname, logoOverLight, burgerOverLight },
+      );
+    };
+
+    const onScrollOrResize = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        update();
       });
+    };
+
+    const onPathChange = requestAnimationFrame(() => {
+      setMenuOpen(false);
+      update();
     });
 
-    return () => cancelAnimationFrame(frame);
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+
+    return () => {
+      cancelAnimationFrame(onPathChange);
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+    };
   }, [pathname]);
 
   useEffect(() => {
@@ -234,27 +280,41 @@ export function SiteHeader() {
 
   const closeMenu = () => setMenuOpen(false);
   const isHome = pathname === "/";
-  const isContact = pathname === "/contact";
   const overLight =
-    surface.pathname === pathname ? surface.overLight : pathname !== "/";
-  const opaque = scrolled || menuOpen || overLight || isContact;
+    surface.pathname === pathname
+      ? surface.logoOverLight || surface.burgerOverLight
+      : pathname !== "/";
+  const logoOverLight =
+    surface.pathname === pathname ? surface.logoOverLight : pathname !== "/";
+  const burgerOverLight =
+    surface.pathname === pathname ? surface.burgerOverLight : pathname !== "/";
+  const opaque = menuOpen;
+  const hideNavLinks = scrolled || menuOpen;
+  const logoOnLight = logoOverLight && !menuOpen;
+  const burgerOnLight = burgerOverLight && !menuOpen;
+  const navOnLight = overLight && !menuOpen;
 
   return (
     <header ref={headerRef} className="fixed inset-x-0 top-0 z-50">
       <div
         className={`transition-colors duration-500 ${
           isHome ? "animate-hero-header motion-reduce:animate-none" : ""
-        } ${opaque ? "bg-onyx/92 backdrop-blur-md" : "bg-transparent"}`}
+        } ${opaque ? "bg-onyx/92 backdrop-blur-md" : "bg-transparent"} ${
+          navOnLight ? "text-onyx" : "text-off-white"
+        }`}
       >
         <div
-          className={`mx-auto flex w-full max-w-[110rem] items-start justify-between gap-8 px-site transition-[padding] duration-500 ${
-            opaque ? "py-4" : "py-6 md:py-8"
-          }`}
+          className={`mx-auto flex w-full max-w-[110rem] items-center justify-between gap-8 transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+            scrolled ? "px-4 md:px-12" : "px-site"
+          } ${opaque ? "py-4" : "py-6 md:py-8"}`}
         >
           <Link
+            ref={logoRef}
             href="/"
             onClick={closeMenu}
-            className="transition-opacity hover:opacity-70"
+            className={`relative flex items-center transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:opacity-70 motion-reduce:transition-none ${
+              scrolled ? "-translate-x-2 md:-translate-x-4" : "translate-x-0"
+            } ${logoOnLight ? "invert" : ""}`}
           >
             <Image
               src={brand.logo.src}
@@ -262,19 +322,31 @@ export function SiteHeader() {
               width={brand.logo.width}
               height={brand.logo.height}
               priority
-              className="h-12 w-auto md:h-24"
+              className={`h-12 w-auto transition-opacity duration-500 md:h-24 ${
+                scrolled ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <Image
+              src="/logo/main-logo-white.svg"
+              alt="CDA Logo Mark"
+              width={386}
+              height={802}
+              priority
+              className={`absolute left-0 top-1/2 h-12 w-auto -translate-y-1/2 transition-opacity duration-500 md:h-25 ${
+                scrolled ? "opacity-100" : "opacity-0"
+              }`}
             />
           </Link>
 
-          <div className="flex items-start gap-10 lg:gap-14">
+          <div className="flex items-center gap-10 lg:gap-14">
             <nav
               aria-label="Primary"
-              aria-hidden={menuOpen}
-              inert={menuOpen}
-              className={`hidden items-start gap-10 lg:flex lg:gap-14 transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
-                menuOpen
-                  ? "pointer-events-none translate-x-6 opacity-0 motion-reduce:translate-x-0"
-                  : "translate-x-0 opacity-100"
+              aria-hidden={hideNavLinks}
+              inert={hideNavLinks}
+              className={`hidden items-center gap-10 lg:flex lg:gap-14 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                hideNavLinks
+                  ? "pointer-events-none -translate-y-4 opacity-0 motion-reduce:translate-y-0"
+                  : "translate-y-0 opacity-100"
               }`}
             >
               {desktopNav.map((item) =>
@@ -297,20 +369,23 @@ export function SiteHeader() {
             </nav>
 
             <button
+              ref={burgerRef}
               type="button"
               onClick={() => setMenuOpen((open) => !open)}
               aria-expanded={menuOpen}
               aria-controls="site-menu"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
-              className="relative flex h-6 w-7 flex-col justify-center gap-[7px]"
+              className={`relative flex h-6 w-7 flex-col justify-center gap-[7px] transition-[transform,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                scrolled ? "translate-x-2 md:translate-x-4" : "translate-x-0"
+              } ${burgerOnLight ? "text-onyx" : "text-off-white"}`}
             >
               <span
-                className={`block h-px w-full origin-center bg-off-white transition-transform duration-300 ${
+                className={`block h-px w-full origin-center bg-current transition-transform duration-300 ${
                   menuOpen ? "translate-y-[4px] rotate-45" : ""
                 }`}
               />
               <span
-                className={`block h-px w-full origin-center bg-off-white transition-transform duration-300 ${
+                className={`block h-px w-full origin-center bg-current transition-transform duration-300 ${
                   menuOpen ? "-translate-y-[4px] -rotate-45" : ""
                 }`}
               />
