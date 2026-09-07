@@ -288,7 +288,6 @@ export function SiteHeader() {
     surface.pathname === pathname ? surface.logoOverLight : pathname !== "/";
   const burgerOverLight =
     surface.pathname === pathname ? surface.burgerOverLight : pathname !== "/";
-  const opaque = menuOpen;
   const hideNavLinks = scrolled || menuOpen;
   const logoOnLight = logoOverLight && !menuOpen;
   const burgerOnLight = burgerOverLight && !menuOpen;
@@ -299,14 +298,14 @@ export function SiteHeader() {
       <div
         className={`transition-colors duration-500 ${
           isHome ? "animate-hero-header motion-reduce:animate-none" : ""
-        } ${opaque ? "bg-onyx/92 backdrop-blur-md" : "bg-transparent"} ${
+        } bg-transparent ${
           navOnLight ? "text-onyx" : "text-off-white"
         }`}
       >
         <div
           className={`mx-auto flex w-full max-w-[110rem] items-center justify-between gap-8 transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
             scrolled ? "px-4 md:px-12" : "px-site"
-          } ${opaque ? "py-4" : "py-6 md:py-8"}`}
+          } py-6 md:py-8`}
         >
           <Link
             ref={logoRef}
@@ -394,13 +393,23 @@ export function SiteHeader() {
         </div>
       </div>
 
+      {/* Backdrop */}
+      <div
+        aria-hidden="true"
+        onClick={closeMenu}
+        className={`fixed inset-0 -z-20 bg-onyx/40 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+          menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      />
+
+      {/* Drawer */}
       <div
         id="site-menu"
         aria-hidden={!menuOpen}
-        className={`fixed inset-0 -z-10 bg-onyx px-site pb-16 pt-32 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:pt-40 ${
+        className={`fixed inset-y-0 right-0 -z-10 w-full md:w-1/2 bg-onyx px-site pb-16 pt-32 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:pt-40 ${
           menuOpen
-            ? "translate-y-0"
-            : "pointer-events-none translate-y-full motion-reduce:translate-y-0"
+            ? "translate-x-0"
+            : "pointer-events-none translate-x-full motion-reduce:translate-x-0"
         }`}
       >
         <div className="mx-auto flex h-full w-full max-w-[110rem] flex-col gap-12 overflow-y-auto md:flex-row md:gap-24">
