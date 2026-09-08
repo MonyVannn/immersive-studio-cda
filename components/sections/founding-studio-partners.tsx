@@ -6,7 +6,7 @@ export function FoundingStudioPartners() {
   return (
     <section
       id="founding-partners"
-      className="scroll-mt-28 bg-off-white px-site py-32 md:py-40"
+      className="scroll-mt-28 bg-off-white px-site pt-16 pb-32 md:pt-0 md:pb-40"
     >
       <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16 md:gap-24">
         {/* Header */}
@@ -51,6 +51,8 @@ export function FoundingStudioPartners() {
               <div className="flex flex-col items-start gap-4">
                 <Link
                   href={copy.cta.href}
+                  target={copy.cta.href.startsWith("http") ? "_blank" : undefined}
+                  rel={copy.cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="cta text-label text-onyx/60 transition-colors hover:text-onyx"
                 >
                   <span

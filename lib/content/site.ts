@@ -92,7 +92,7 @@ export const audiences: Audience[] = [
         "Hospitality amenities",
       ],
     },
-    cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
+    cta: { label: "Book a Session", href: "https://immersivestudiocda-book.as.me/booking-studio" },
     media: {
       hero: { label: "Pre-construction walkthrough", src: "/assets/who-is-it-for/builder/main-image.jpg" },
       inline: { label: "Studio details and projection", src: "/assets/who-is-it-for/builder/second-image.jpg" },
@@ -111,7 +111,7 @@ export const audiences: Audience[] = [
       "The studio is designed for collaborative review, bringing together architects, consultants, clients, and selected project partners. A curated vendor showcase also allows materials, fixtures, finishes, and lighting to be evaluated in context.",
       "The result is a more engaging and productive decision-making process—one that can accelerate approvals, reduce late-stage revisions, and support a smoother transition from design development to construction-ready plans.",
     ],
-    cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
+    cta: { label: "Book a Session", href: "https://immersivestudiocda-book.as.me/booking-studio" },
     media: {
       hero: { label: "1:1 architectural projection", src: "/assets/who-is-it-for/architech/main-image.jpg" },
       inline: { label: "Collaborative design review", src: "/assets/who-is-it-for/architech/second-image.jpg" },
@@ -129,7 +129,7 @@ export const audiences: Audience[] = [
       "CDA Immersive Studio creates a more efficient way to evaluate prospective properties. Bring multiple floor plans into the studio, experience each one at 1:1 scale, and compare layouts before scheduling in-person visits.",
       "By helping clients understand which spaces are most likely to fit their needs, the studio makes it easier to narrow the search, eliminate poor-fit properties earlier, and reserve valuable time for the locations worth seeing in person.",
     ],
-    cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
+    cta: { label: "Book a Session", href: "https://immersivestudiocda-book.as.me/booking-studio" },
     media: {
       hero: { label: "Property comparison at 1:1 scale", src: "/assets/who-is-it-for/realtor/main-image.jpg" },
       inline: { label: "Multi-plan studio session", src: "/assets/who-is-it-for/realtor/second-image.jpg" },
@@ -167,7 +167,7 @@ export const audiences: Audience[] = [
       "This immersive review creates an opportunity to refine important decisions early, reduce the risk of costly change orders and delays, and move into construction with greater clarity and confidence.",
       "Ensure the plans you approve become a home you will love living in for years to come.",
     ],
-    cta: { label: "Book a Session", href: "/contact?category=Booking%20a%20Session" },
+    cta: { label: "Book a Session", href: "https://immersivestudiocda-book.as.me/booking-studio" },
     media: {
       hero: { label: "Future home at full scale", src: "/assets/who-is-it-for/homeowner/main-image.jpg" },
       inline: { label: "Room flow and layout review", src: "/assets/who-is-it-for/homeowner/second-image.jpg" },
@@ -239,7 +239,7 @@ export const navGroups: NavGroup[] = [
 
 export const primaryAction: NavLink = {
   label: "Book a Session",
-  href: "/contact",
+  href: "https://immersivestudiocda-book.as.me/booking-studio",
 };
 
 export const hero = {
@@ -372,7 +372,7 @@ export const foundingStudioPartners = {
   },
   cta: {
     label: "Request Founding Partner Details",
-    href: "/contact?category=Studio%20Membership",
+    href: "https://immersivestudiocda-book.as.me/member-booking",
     supportingLine: "Founding partnerships are intentionally limited to preserve the quality and availability of the experience.",
   },
   secondaryCta: {
@@ -499,7 +499,7 @@ export const showcasePage = {
   ],
   vendorCta: {
     label: "Join the Vendor Waitlist",
-    href: "/contact?category=Vendor%20Opportunities",
+    href: "https://immersivestudiocda-book.as.me/member-booking",
   },
   clientCta: {
     label: "Explore the Showcase",
@@ -557,7 +557,7 @@ export const membershipPage = {
   ],
   cta: {
     label: "Request Founding Partner Details",
-    href: "/contact?category=Studio%20Membership",
+    href: "https://immersivestudiocda-book.as.me/member-booking",
     supportingLine: "Founding partnerships are intentionally limited to preserve the quality and availability of the experience.",
   },
 } as const;

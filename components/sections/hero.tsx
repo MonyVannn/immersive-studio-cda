@@ -28,14 +28,12 @@ export function Hero() {
         </p>
 
         <a
-          href="#the-experience"
-          className="cta mt-8 text-label text-off-white/60 transition-colors hover:text-off-white"
+          href="https://immersivestudiocda-book.as.me/booking-studio"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta mt-8 text-label text-off-white transition-colors hover:bg-off-white hover:text-onyx"
         >
-          <span
-            aria-hidden
-            className="block h-px w-10 bg-current transition-[width] duration-300"
-          />
-          {hero.scrollCue}
+          Book a Session
         </a>
       </div>
     </section>

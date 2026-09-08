@@ -102,6 +102,8 @@ export function WhoItsForCategory({ audience }: { audience: Audience }) {
               {audience.cta && (
                 <Link
                   href={audience.cta.href}
+                  target={audience.cta.href.startsWith("http") ? "_blank" : undefined}
+                  rel={audience.cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="cta mt-4 w-fit text-label text-onyx/60 transition-colors hover:text-onyx"
                 >
                   <span

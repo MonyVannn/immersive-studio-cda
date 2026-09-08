@@ -136,6 +136,8 @@ export function MembershipPageSection() {
               <div className="flex flex-col items-center gap-4">
                 <Link
                   href={copy.cta.href}
+                  target={copy.cta.href.startsWith("http") ? "_blank" : undefined}
+                  rel={copy.cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="bg-onyx text-off-white px-8 py-4 text-label transition-opacity hover:opacity-90"
                 >
                   {copy.cta.label}

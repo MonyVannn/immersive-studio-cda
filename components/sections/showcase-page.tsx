@@ -81,6 +81,8 @@ export function ShowcasePageSection() {
               </div>
               <Link
                 href={copy.vendorCta.href}
+                target={copy.vendorCta.href.startsWith("http") ? "_blank" : undefined}
+                rel={copy.vendorCta.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="cta mt-auto text-label text-onyx/60 transition-colors hover:text-onyx"
               >
                 Apply to Become a Vendor
