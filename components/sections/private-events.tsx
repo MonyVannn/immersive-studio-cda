@@ -45,7 +45,7 @@ export function PrivateEvents() {
           </div>
         </div>
 
-        <div className="w-full md:px-16 lg:px-24">
+        <div className="-mx-8 w-[calc(100%+4rem)] md:mx-0 md:w-full md:px-16 lg:px-24">
           <AutoplayCarousel slides={slides} />
         </div>
       </div>

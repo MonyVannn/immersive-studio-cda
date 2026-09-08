@@ -11,7 +11,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_42%] brightness-[0.82] contrast-[1.12]"
+          className="object-cover scale-[1.25] md:scale-100 object-top md:object-[center_42%] origin-top md:origin-center brightness-[0.82] contrast-[1.12] transition-transform duration-700"
         />
       </div>
 

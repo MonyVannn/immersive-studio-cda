@@ -24,7 +24,7 @@ export function WhatHappensHere() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-6xl lg:px-8">
+        <div className="-mx-8 w-[calc(100%+4rem)] max-w-none md:mx-auto md:w-full md:max-w-6xl lg:px-8">
           <div className="relative aspect-[16/9] w-full overflow-hidden bg-onyx/10">
             <Image
               src={copy.media.src}

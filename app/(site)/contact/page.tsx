@@ -27,8 +27,8 @@ export default function ContactPage() {
                 key={detail.label}
                 className="flex items-baseline justify-between gap-6"
               >
-                <dt className="text-label text-dove">{detail.label}</dt>
-                <dd className="text-right text-body font-primary text-onyx">
+                <dt className="text-label text-dove shrink-0">{detail.label}</dt>
+                <dd className="text-right text-sm sm:text-base md:text-body font-primary text-onyx min-w-0 break-words">
                   {detail.href ? (
                     <a
                       href={detail.href}

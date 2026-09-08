@@ -5,10 +5,10 @@ export function OurLocation() {
   return (
     <section
       id="the-studio"
-      className="scroll-mt-28 bg-onyx px-site py-24 text-off-white md:py-32"
+      className="scroll-mt-28 bg-onyx px-site pb-24 pt-0 text-off-white md:pb-32 md:pt-0"
     >
       <div className="mx-auto grid w-full max-w-[110rem] gap-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 -mx-8 w-[calc(100%+4rem)] md:mx-0 md:w-full">
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-onyx/50 lg:aspect-[16/9]">
             <Image
               src={copy.media.src}

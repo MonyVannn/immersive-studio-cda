@@ -23,7 +23,7 @@ export function FoundingStudioPartners() {
         {/* Editorial Split */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Media (Left) */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 -mx-8 w-[calc(100%+4rem)] md:mx-0 md:w-full">
             <div className="aspect-[16/10] w-full">
               <PlaceholderMedia
                 label={copy.media.label}

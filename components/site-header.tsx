@@ -321,7 +321,7 @@ export function SiteHeader() {
               width={brand.logo.width}
               height={brand.logo.height}
               priority
-              className={`h-12 w-auto transition-opacity duration-500 md:h-28 ${
+              className={`h-18 w-auto transition-opacity duration-500 md:h-28 ${
                 scrolled ? "opacity-0" : "opacity-100"
               }`}
             />
@@ -331,7 +331,7 @@ export function SiteHeader() {
               width={386}
               height={802}
               priority
-              className={`absolute left-0 top-1/2 h-12 w-auto -translate-y-1/2 transition-opacity duration-500 md:h-25 ${
+              className={`absolute left-0 top-1/2 h-16 w-auto -translate-y-1/2 transition-opacity duration-500 md:h-25 ${
                 scrolled ? "opacity-100" : "opacity-0"
               }`}
             />
@@ -412,37 +412,52 @@ export function SiteHeader() {
             : "pointer-events-none translate-x-full motion-reduce:translate-x-0"
         }`}
       >
-        <div className="mx-auto flex h-full w-full max-w-[110rem] flex-col gap-12 overflow-y-auto md:flex-row md:gap-24">
-          {navGroups.map((group) => (
+        <div className="mx-auto flex h-full w-full max-w-[110rem] flex-col gap-12 overflow-y-auto overflow-x-hidden md:flex-row md:gap-24">
+          <nav
+            aria-label={`${navGroups[0].label}, expanded menu`}
+            className="flex flex-col gap-4"
+          >
+            <p className="text-label text-off-white/40">{navGroups[0].label}</p>
+            <NavGroupLinks
+              group={navGroups[0]}
+              onNavigate={closeMenu}
+              variant="mobile"
+              linkClassName="text-[clamp(1.45rem,2.9vw,2.125rem)] leading-[1.15] tracking-[-0.01em] font-secondary text-off-white transition-opacity hover:opacity-60"
+              subsectionLinkClassName="text-[1.1875rem] leading-[1.25] tracking-[-0.01em] font-secondary text-off-white/75 transition-opacity hover:opacity-60"
+              subsectionLabelClassName="pt-2 text-label text-off-white/40"
+            />
+          </nav>
+
+          <div className="flex flex-col gap-12">
             <nav
-              key={group.id}
-              aria-label={`${group.label}, expanded menu`}
+              aria-label={`${navGroups[1].label}, expanded menu`}
               className="flex flex-col gap-4"
             >
-              <p className="text-label text-off-white/40">{group.label}</p>
+              <p className="text-label text-off-white/40">{navGroups[1].label}</p>
               <NavGroupLinks
-                group={group}
+                group={navGroups[1]}
                 onNavigate={closeMenu}
                 variant="mobile"
-                linkClassName="text-h2 font-secondary text-off-white transition-opacity hover:opacity-60"
-                subsectionLinkClassName="text-h3 font-secondary text-off-white/75 transition-opacity hover:opacity-60"
+                linkClassName="text-[clamp(1.45rem,2.9vw,2.125rem)] leading-[1.15] tracking-[-0.01em] font-secondary text-off-white transition-opacity hover:opacity-60"
+                subsectionLinkClassName="text-[1.1875rem] leading-[1.25] tracking-[-0.01em] font-secondary text-off-white/75 transition-opacity hover:opacity-60"
                 subsectionLabelClassName="pt-2 text-label text-off-white/40"
               />
             </nav>
-          ))}
-          <nav aria-label="Pages, expanded menu" className="flex flex-col gap-4">
-            <p className="text-label text-off-white/40">Pages</p>
-            {pageLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={closeMenu}
-                className="text-h2 font-secondary text-off-white transition-opacity hover:opacity-60"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+
+            <nav aria-label="Pages, expanded menu" className="flex flex-col gap-4">
+              <p className="text-label text-off-white/40">Pages</p>
+              {pageLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="text-[clamp(1.45rem,2.9vw,2.125rem)] leading-[1.15] tracking-[-0.01em] font-secondary text-off-white transition-opacity hover:opacity-60"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </header>

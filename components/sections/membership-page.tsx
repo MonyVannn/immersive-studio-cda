@@ -18,7 +18,7 @@ export function MembershipPageSection() {
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[center_42%] brightness-[0.82] contrast-[1.12]"
+              className="object-cover scale-[1.25] md:scale-100 object-top md:object-[center_42%] origin-top md:origin-center brightness-[0.82] contrast-[1.12] transition-transform duration-700"
             />
           </div>
 
@@ -37,7 +37,7 @@ export function MembershipPageSection() {
         </section>
 
         {/* Narrative and Stats Section */}
-        <section className="bg-off-white px-site pt-24 md:pt-32 pb-24 md:pb-32">
+        <section className="bg-off-white px-site pt-24 md:pt-32 pb-12 md:pb-16">
           <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16 md:gap-24">
             
             {/* Narrative */}
@@ -66,14 +66,14 @@ export function MembershipPageSection() {
         </section>
 
         {/* Light Section: Benefits & CTA */}
-        <section className="bg-off-white px-site py-24 md:py-32">
-          <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-24">
+        <section className="bg-off-white px-site pb-24 pt-0 md:pb-32">
+          <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16 md:gap-24">
             
             {/* Benefits */}
-            <div className="flex flex-col gap-24">
-              {/* Eyebrow */}
+            <div className="flex flex-col gap-12 md:gap-16">
+              {/* Header */}
               <div className="flex justify-center">
-                <p className="text-label text-dove">STUDIO MEMBER BENEFITS</p>
+                <h2 className="text-h2 font-secondary text-onyx">Studio Member Benefits</h2>
               </div>
 
               {/* Row 1 */}
