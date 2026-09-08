@@ -4,7 +4,6 @@ import { useState, type FormEvent, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Toast } from "@/components/ui/toast";
 import { contactPage } from "@/lib/content/site";
-import { submitContactForm } from "@/app/(site)/contact/actions";
 
 const copy = contactPage.form;
 
@@ -33,15 +32,17 @@ function ContactFormInner() {
     setPending(true);
     setError(null);
 
-    const result = await submitContactForm({ name, email, category, message });
+    // Construct email parameters
+    const targetEmail = "contact@immersivestudiocda.com";
+    const subject = encodeURIComponent(`Website Inquiry: ${category}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    // Open default mail client
+    window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
 
     setPending(false);
-
-    if (!result.ok) {
-      setError(result.error ?? "Something went wrong. Please try again.");
-      return;
-    }
-
     form.reset();
     setToastMessage(copy.successMessage);
   }
