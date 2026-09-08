@@ -26,6 +26,7 @@ export type AudienceMedia = {
   detail?: string;
   src?: string;
   alt?: string;
+  imageClassName?: string;
 };
 
 export type EventGalleryItem = {
@@ -149,7 +150,7 @@ export const audiences: Audience[] = [
     cta: { label: "Propose a Creative Experience", href: "/contact?category=Private%20Events" },
     media: {
       hero: { label: "Immersive creative environment", src: "/assets/who-is-it-for/experience-creator/main-image.jpg" },
-      inline: { label: "Audience inside the experience", src: "/assets/who-is-it-for/experience-creator/second-image.png" },
+      inline: { label: "Audience inside the experience", src: "/assets/who-is-it-for/experience-creator/second-image.png", imageClassName: "object-bottom" },
     },
   },
   {
@@ -421,27 +422,6 @@ export const privateEvents = {
       alt: "Private presentation",
     },
     {
-      id: "launch",
-      label: "Product launch",
-      detail: "New idea introduced through image, sound, and atmosphere",
-      src: "/assets/homepage/private-event2.jpeg",
-      alt: "Product launch",
-    },
-    {
-      id: "dinner",
-      label: "Private dinner",
-      detail: "Dinner and conversation inside a shared visual environment",
-      src: "/assets/homepage/private-event3.jpeg",
-      alt: "Private dinner",
-    },
-    {
-      id: "gathering",
-      label: "Creative gathering",
-      detail: "Performance or celebration in an unconventional venue",
-      src: "/assets/homepage/private-event4.jpeg",
-      alt: "Creative gathering",
-    },
-    {
       id: "offsite",
       label: "Team offsite",
       detail: "Focused strategy and alignment sessions",
@@ -477,30 +457,6 @@ export const privateEventsPage = {
       date: "Spring 2026",
       src: "/assets/homepage/private-event.jpeg",
       alt: "Private presentation",
-    },
-    {
-      id: "launch",
-      label: "Product launch",
-      detail: "New idea introduced through image, sound, and atmosphere",
-      date: "Summer 2026",
-      src: "/assets/homepage/private-event2.jpeg",
-      alt: "Product launch",
-    },
-    {
-      id: "dinner",
-      label: "Private dinner",
-      detail: "Dinner and conversation inside a shared visual environment",
-      date: "Fall 2026",
-      src: "/assets/homepage/private-event3.jpeg",
-      alt: "Private dinner",
-    },
-    {
-      id: "gathering",
-      label: "Creative gathering",
-      detail: "Performance or celebration in an unconventional venue",
-      date: "Winter 2026",
-      src: "/assets/homepage/private-event4.jpeg",
-      alt: "Creative gathering",
     },
     {
       id: "offsite",

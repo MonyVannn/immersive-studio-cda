@@ -10,6 +10,7 @@ type PlaceholderMediaProps = {
   alt?: string;
   priority?: boolean;
   className?: string;
+  imageClassName?: string;
   interactive?: boolean;
   onClick?: () => void;
 };
@@ -44,6 +45,7 @@ export function PlaceholderMedia({
   alt,
   priority = false,
   className = "",
+  imageClassName = "",
   interactive = false,
   onClick,
 }: PlaceholderMediaProps) {
@@ -56,7 +58,7 @@ export function PlaceholderMedia({
           fill
           priority={priority}
           sizes="(min-width: 1024px) 60vw, 100vw"
-          className="object-cover"
+          className={`object-cover ${imageClassName}`.trim()}
         />
       ) : (
         <>
