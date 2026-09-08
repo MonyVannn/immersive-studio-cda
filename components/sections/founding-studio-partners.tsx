@@ -15,7 +15,7 @@ export function FoundingStudioPartners() {
           <h2 className="max-w-4xl text-display font-secondary text-onyx">
             {copy.headline}
           </h2>
-          <p className="max-w-prose text-h2 font-secondary text-onyx/80">
+          <p className="w-full md:w-2/3 text-h2 font-secondary text-onyx/80">
             {copy.subheading}
           </p>
         </div>

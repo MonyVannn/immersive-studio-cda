@@ -441,6 +441,27 @@ export const privateEvents = {
       src: "/assets/homepage/private-event4.jpeg",
       alt: "Creative gathering",
     },
+    {
+      id: "offsite",
+      label: "Team offsite",
+      detail: "Focused strategy and alignment sessions",
+      src: "/assets/homepage/private-event5.jpg",
+      alt: "Team offsite",
+    },
+    {
+      id: "brand-activation",
+      label: "Brand activation",
+      detail: "Immersive experiences that connect audiences to the brand",
+      src: "/assets/homepage/private-event6.jpg",
+      alt: "Brand activation",
+    },
+    {
+      id: "intimate-performance",
+      label: "Intimate performance",
+      detail: "Exclusive showcases blending sight, sound, and space",
+      src: "/assets/homepage/private-event7.png",
+      alt: "Intimate performance",
+    },
   ],
 } as const;
 
@@ -486,18 +507,24 @@ export const privateEventsPage = {
       label: "Team offsite",
       detail: "Focused strategy and alignment sessions",
       date: "Spring 2027",
+      src: "/assets/homepage/private-event5.jpg",
+      alt: "Team offsite",
     },
     {
       id: "brand-activation",
       label: "Brand activation",
       detail: "Immersive experiences that connect audiences to the brand",
       date: "Summer 2027",
+      src: "/assets/homepage/private-event6.jpg",
+      alt: "Brand activation",
     },
     {
       id: "intimate-performance",
       label: "Intimate performance",
       detail: "Exclusive showcases blending sight, sound, and space",
       date: "Fall 2027",
+      src: "/assets/homepage/private-event7.png",
+      alt: "Intimate performance",
     },
   ],
   cta: {

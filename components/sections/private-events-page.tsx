@@ -31,7 +31,9 @@ export function PrivateEventsPageSection() {
         </div>
 
         {/* Carousel replacing the previous static EventGallery */}
-        <AutoplayCarousel slides={slides} />
+        <div className="w-full md:px-16 lg:px-24">
+          <AutoplayCarousel slides={slides} />
+        </div>
 
         {/* Bottom CTA */}
         <div className="flex max-w-4xl flex-col items-start gap-4 border-t border-beige pt-16">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PlaceholderMedia } from "@/components/placeholder-media";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { showcasePage as copy } from "@/lib/content/site";
@@ -8,29 +9,30 @@ export function ShowcasePageSection() {
     <div className="flex flex-col">
       <ScrollToTop />
 
-      {/* Hero Section - Dark Theme for Premium Editorial Feel */}
-      <section className="bg-onyx px-site pb-24 pt-52 text-off-white md:pb-32 md:pt-64">
-        <div className="mx-auto flex w-full max-w-[110rem] flex-col gap-16 lg:flex-row lg:items-center lg:gap-24">
-          <div className="flex flex-col gap-8 lg:w-1/2">
-            <p className="text-label text-off-white/50">{copy.eyebrow}</p>
+      {/* Hero Section */}
+      <section className="relative flex min-h-svh items-end overflow-hidden bg-onyx">
+        <div className="absolute inset-0 animate-hero-zoom motion-reduce:animate-none">
+          <Image
+            src="/assets/vendor-showcase/hero-image.jpeg"
+            alt="Vendor Showcase Hero"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_42%] brightness-[0.82] contrast-[1.12]"
+          />
+        </div>
 
-            <h1 className="max-w-4xl whitespace-pre-line text-display font-secondary text-off-white">
-              {copy.headline}
-            </h1>
+        <div className="pointer-events-none absolute inset-0 bg-onyx/10" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-onyx/90 from-[5%] via-onyx/40 via-45% to-transparent" />
 
-            <p className="max-w-prose text-h2 font-secondary text-off-white/80">
-              {copy.subheading}
-            </p>
-          </div>
-
-          <div className="lg:w-1/2">
-            <PlaceholderMedia
-              label={copy.media.hero.label}
-              detail={copy.media.hero.detail}
-              tone="dark"
-              className="aspect-[4/3] w-full lg:aspect-[3/4]"
-            />
-          </div>
+        <div className="relative mx-auto flex w-full max-w-[110rem] flex-col gap-6 px-site pb-16 pt-40 animate-hero-copy motion-reduce:animate-none md:pb-24">
+          <p className="text-label text-off-white/60">{copy.eyebrow}</p>
+          <h1 className="text-display font-secondary text-off-white">
+            {copy.headline}
+          </h1>
+          <p className="max-w-xl text-body font-primary text-off-white/75">
+            {copy.subheading}
+          </p>
         </div>
       </section>
 
@@ -63,47 +65,25 @@ export function ShowcasePageSection() {
                 detail={copy.media.inline.detail}
                 tone="light"
                 className="aspect-square w-full"
+                src="/assets/vendor-showcase/second-image.jpg"
               />
             </div>
           </div>
 
           {/* Action Cards */}
-          <div className="grid gap-4 border-t border-beige pt-12 md:grid-cols-2 md:gap-6 lg:pt-16">
-            <article className="flex flex-col items-start gap-8 bg-beige/35 p-8 md:p-12">
-              <div className="flex flex-col gap-3">
-                <h2 className="text-h2 font-secondary text-onyx">For Project Teams</h2>
-                <p className="text-body font-primary text-onyx/80">
-                  Experience materials in their true context before construction begins.
-                </p>
-              </div>
-              <Link
-                href={copy.clientCta.href}
-                className="cta mt-auto text-label text-onyx/60 transition-colors hover:text-onyx"
-              >
-                <span
-                  aria-hidden
-                  className="block h-px w-10 bg-current transition-[width] duration-300"
-                />
-                {copy.clientCta.label}
-              </Link>
-            </article>
-
-            <article className="flex flex-col items-start gap-8 bg-beige/35 p-8 md:p-12">
-              <div className="flex flex-col gap-3">
+          <div className="flex justify-center border-t border-beige pt-12 lg:pt-16">
+            <article className="flex w-full max-w-3xl flex-col items-center text-center gap-8 bg-beige/35 p-8 md:p-12">
+              <div className="flex flex-col gap-3 items-center">
                 <h2 className="text-h2 font-secondary text-onyx">For Brand Partners</h2>
                 <p className="text-body font-primary text-onyx/80">
-                  Feature your premium products in our immersive full-scale studio.
+                  Put your products in front of architects, designers, builders, and their clients in an immersive, full-scale studio environment.
                 </p>
               </div>
               <Link
                 href={copy.vendorCta.href}
                 className="cta mt-auto text-label text-onyx/60 transition-colors hover:text-onyx"
               >
-                <span
-                  aria-hidden
-                  className="block h-px w-10 bg-current transition-[width] duration-300"
-                />
-                {copy.vendorCta.label}
+                Apply to Become a Vendor
               </Link>
             </article>
           </div>

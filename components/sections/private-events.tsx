@@ -45,7 +45,9 @@ export function PrivateEvents() {
           </div>
         </div>
 
-        <AutoplayCarousel slides={slides} />
+        <div className="w-full md:px-16 lg:px-24">
+          <AutoplayCarousel slides={slides} />
+        </div>
       </div>
     </section>
   );
