@@ -35,7 +35,7 @@ export const studioMemberPage: OfferPageContent = {
     {
       number: "01",
       title: "3 immersive sessions monthly",
-      body: "$2,700 in session value, refreshed every month. Use them across any of your active projects.",
+      body: "$2,700 in session value every month. Unused sessions carry over and must be used within your membership year. Use them across any of your active projects.",
     },
     {
       number: "02",
