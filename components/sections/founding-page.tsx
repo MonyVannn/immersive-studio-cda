@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollToTop } from "@/components/scroll-to-top";
-import { foundingPage as copy } from "@/lib/content/founding";
+import { foundingPage, type OfferPageContent } from "@/lib/content/founding";
 
 /* Seven founding seats. Seven tapered rails in the logo's language;
    each rail is a seat. Every seat reads as open until Jeremy says otherwise. */
@@ -70,7 +70,11 @@ function ExternalLink({
 const primaryButton =
   "inline-flex w-full items-center justify-center bg-off-white px-8 py-4 text-label text-onyx transition-opacity hover:opacity-90 md:w-auto";
 
-export function FoundingPageSection() {
+export function FoundingPageSection({
+  copy = foundingPage,
+}: {
+  copy?: OfferPageContent;
+}) {
   return (
     <>
       <ScrollToTop />
@@ -101,7 +105,9 @@ export function FoundingPageSection() {
               <ExternalLink href={copy.hero.cta.href} className={primaryButton}>
                 {copy.hero.cta.label}
               </ExternalLink>
-              <p className="text-label text-off-white/50">{copy.hero.note}</p>
+              {copy.hero.note ? (
+                <p className="text-label text-off-white/50">{copy.hero.note}</p>
+              ) : null}
             </div>
           </div>
         </section>
@@ -115,7 +121,9 @@ export function FoundingPageSection() {
               <span className="text-h2 text-off-white/60">{copy.offer.per}</span>
             </p>
             <p className="text-body font-primary text-off-white/60">{copy.offer.compare}</p>
-            <SeatMarks count={copy.offer.seats} label={copy.offer.seatsLabel} />
+            {copy.offer.seats && copy.offer.seatsLabel ? (
+              <SeatMarks count={copy.offer.seats} label={copy.offer.seatsLabel} />
+            ) : null}
             <p className="max-w-prose text-body font-primary text-off-white/70">{copy.offer.terms}</p>
           </div>
         </section>

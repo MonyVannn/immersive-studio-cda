@@ -5,7 +5,47 @@
 export const foundingCheckoutUrl =
   "https://app.acuityscheduling.com/catalog.php?owner=40283262&action=addCart&clear=1&id=2274723";
 
-export const foundingPage = {
+export type OfferPageContent = {
+  meta: { title: string; description: string };
+  hero: {
+    eyebrow: string;
+    headline: string;
+    sub: string;
+    cta: { label: string; href: string };
+    note?: string;
+    media: { src: string; alt: string };
+  };
+  offer: {
+    eyebrow: string;
+    price: string;
+    per: string;
+    compare: string;
+    seatsLabel?: string;
+    seats?: number;
+    terms: string;
+  };
+  narrative: string;
+  stats: { value: string; label: string }[];
+  benefitsHeading: string;
+  benefits: { number: string; title: string; body: string }[];
+  hosting: { src: string; alt: string };
+  flow: {
+    heading: string;
+    steps: { number: string; title: string; body: string; src: string }[];
+  };
+  room: { heading: string; zones: string[]; media: { src: string; alt: string } };
+  close: {
+    headline: string;
+    body: string;
+    cta: { label: string; href: string };
+    talk: { lead: string; label: string; href: string };
+    footnote: string;
+    termsLabel: string;
+    termsHref: string;
+  };
+};
+
+export const foundingPage: OfferPageContent = {
   meta: {
     title: "Founding Member",
     description:
@@ -108,4 +148,4 @@ export const foundingPage = {
     termsLabel: "Session terms",
     termsHref: "/terms",
   },
-} as const;
+};
