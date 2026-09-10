@@ -22,6 +22,10 @@ export type OfferPageContent = {
     compare: string;
     seatsLabel?: string;
     seats?: number;
+    /** Seats sold so far. Flip this number as founding memberships come in. At >= seats the page reads as full. */
+    seatsTaken?: number;
+    fullLabel?: string;
+    fullCta?: { label: string; href: string };
     terms: string;
   };
   narrative: string;
@@ -69,6 +73,9 @@ export const foundingPage: OfferPageContent = {
     compare: "Standard membership: $1,800/mo",
     seatsLabel: "7 founding firms only",
     seats: 7,
+    seatsTaken: 0,
+    fullLabel: "All seven founding seats are taken.",
+    fullCta: { label: "Become a Studio Member", href: "/studio-member" },
     terms:
       "12-month founding term, renewing in 12-month terms. Rates may adjust at renewal, but your founding discount always applies for as long as your membership stays active.",
   },

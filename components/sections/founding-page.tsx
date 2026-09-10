@@ -4,8 +4,16 @@ import { ScrollToTop } from "@/components/scroll-to-top";
 import { foundingPage, type OfferPageContent } from "@/lib/content/founding";
 
 /* Seven founding seats. Seven tapered rails in the logo's language;
-   each rail is a seat. Every seat reads as open until Jeremy says otherwise. */
-function SeatMarks({ count, label }: { count: number; label: string }) {
+   each rail is a seat. Sold seats fill solid, open seats stay outlined and lit. */
+function SeatMarks({
+  count,
+  taken,
+  label,
+}: {
+  count: number;
+  taken: number;
+  label: string;
+}) {
   const seats = Array.from({ length: count }, (_, i) => i);
   return (
     <figure className="flex flex-col items-center gap-4" aria-label={label}>
@@ -22,18 +30,19 @@ function SeatMarks({ count, label }: { count: number; label: string }) {
         </defs>
         {seats.map((i) => {
           const x = i * 30 + 11;
+          const d = `M${x} 2 L${x + 8} 2 L${x + 6} 54 L${x + 2} 54 Z`;
+          const sold = i < taken;
           return (
             <g key={i}>
+              {sold ? null : (
+                <path d={d} fill="#F7F7F3" opacity="0.28" filter="url(#seat-glow)" />
+              )}
               <path
-                d={`M${x} 2 L${x + 8} 2 L${x + 6} 54 L${x + 2} 54 Z`}
-                fill="#F7F7F3"
-                opacity="0.28"
-                filter="url(#seat-glow)"
-              />
-              <path
-                d={`M${x} 2 L${x + 8} 2 L${x + 6} 54 L${x + 2} 54 Z`}
-                fill="none"
+                d={d}
+                fill={sold ? "#F7F7F3" : "none"}
+                fillOpacity={sold ? 0.9 : 1}
                 stroke="#F7F7F3"
+                strokeOpacity={sold ? 0.9 : 1}
                 strokeWidth="1"
               />
             </g>
@@ -43,6 +52,15 @@ function SeatMarks({ count, label }: { count: number; label: string }) {
       <figcaption className="text-label text-off-white/60">{label}</figcaption>
     </figure>
   );
+}
+
+function seatLabel(copy: OfferPageContent): string {
+  const seats = copy.offer.seats ?? 0;
+  const taken = copy.offer.seatsTaken ?? 0;
+  if (taken <= 0) return copy.offer.seatsLabel ?? "";
+  if (taken >= seats) return copy.offer.fullLabel ?? copy.offer.seatsLabel ?? "";
+  const left = seats - taken;
+  return `${left} of ${seats} founding seats remaining`;
 }
 
 function ExternalLink({
@@ -75,6 +93,11 @@ export function FoundingPageSection({
 }: {
   copy?: OfferPageContent;
 }) {
+  const seats = copy.offer.seats ?? 0;
+  const isFull = seats > 0 && (copy.offer.seatsTaken ?? 0) >= seats;
+  const heroCta = isFull && copy.offer.fullCta ? copy.offer.fullCta : copy.hero.cta;
+  const closeCta = isFull && copy.offer.fullCta ? copy.offer.fullCta : copy.close.cta;
+  const heroNote = isFull ? copy.offer.fullLabel : copy.hero.note;
   return (
     <>
       <ScrollToTop />
@@ -102,11 +125,11 @@ export function FoundingPageSection({
               {copy.hero.sub}
             </p>
             <div className="mt-2 flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
-              <ExternalLink href={copy.hero.cta.href} className={primaryButton}>
-                {copy.hero.cta.label}
+              <ExternalLink href={heroCta.href} className={primaryButton}>
+                {heroCta.label}
               </ExternalLink>
-              {copy.hero.note ? (
-                <p className="text-label text-off-white/50">{copy.hero.note}</p>
+              {heroNote ? (
+                <p className="text-label text-off-white/50">{heroNote}</p>
               ) : null}
             </div>
           </div>
@@ -122,7 +145,11 @@ export function FoundingPageSection({
             </p>
             <p className="text-body font-primary text-off-white/60">{copy.offer.compare}</p>
             {copy.offer.seats && copy.offer.seatsLabel ? (
-              <SeatMarks count={copy.offer.seats} label={copy.offer.seatsLabel} />
+              <SeatMarks
+                count={copy.offer.seats}
+                taken={copy.offer.seatsTaken ?? 0}
+                label={seatLabel(copy)}
+              />
             ) : null}
             <p className="max-w-prose text-body font-primary text-off-white/70">{copy.offer.terms}</p>
           </div>
@@ -232,8 +259,11 @@ export function FoundingPageSection({
           <div className="mx-auto flex w-full max-w-[110rem] flex-col items-center gap-8 text-center">
             <h2 className="text-display font-secondary text-off-white">{copy.close.headline}</h2>
             <p className="max-w-prose text-body font-primary text-off-white/70">{copy.close.body}</p>
-            <ExternalLink href={copy.close.cta.href} className={primaryButton}>
-              {copy.close.cta.label}
+            {isFull && copy.offer.fullLabel ? (
+              <p className="text-label text-off-white/50">{copy.offer.fullLabel}</p>
+            ) : null}
+            <ExternalLink href={closeCta.href} className={primaryButton}>
+              {closeCta.label}
             </ExternalLink>
             <p className="text-body font-primary text-off-white/60">
               {copy.close.talk.lead}{" "}
