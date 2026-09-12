@@ -344,6 +344,15 @@ export const studioMemberships = {
   },
 } as const;
 
+const foundingMembershipInquiryMailto = `mailto:contact@immersivestudiocda.com?subject=${encodeURIComponent("Founding Membership Inquiry")}&body=${encodeURIComponent(`Dear Jeremy,
+
+I am writing to express my interest in learning more about a founding membership at Immersive Studio CDA. I would appreciate any details you can share regarding the program, including availability, pricing, and member benefits.
+
+Thank you for your time, and I look forward to hearing from you.
+
+Best regards,
+[Your Name]`)}`;
+
 export const foundingStudioPartners = {
   eyebrow: "Make Immersion a Part of Your Signature Process",
   headline: "Founding Studio Partners",
@@ -372,7 +381,7 @@ export const foundingStudioPartners = {
   },
   cta: {
     label: "Request Founding Partner Details",
-    href: "https://immersivestudiocda-book.as.me/member-booking",
+    href: foundingMembershipInquiryMailto,
     supportingLine: "Founding partnerships are intentionally limited to preserve the quality and availability of the experience.",
   },
   secondaryCta: {
@@ -527,12 +536,12 @@ export const membershipPage = {
     {
       number: "01",
       title: "3 immersive sessions monthly",
-      body: "$2,700 in session value, refreshed every month. Use them across any of your active projects.",
+      body: "Your sessions refresh every month, and carry over if you don’t use them. Use them across any of your active projects.",
     },
     {
       number: "02",
       title: "Member rate on extras",
-      body: "Busy month? Add sessions anytime at $600 each instead of the $900 à la carte price.",
+      body: "Members can add sessions anytime at a significant value compared to our standard à la carte price.",
     },
     {
       number: "03",
@@ -557,7 +566,7 @@ export const membershipPage = {
   ],
   cta: {
     label: "Request Founding Partner Details",
-    href: "https://immersivestudiocda-book.as.me/member-booking",
+    href: foundingMembershipInquiryMailto,
     supportingLine: "Founding partnerships are intentionally limited to preserve the quality and availability of the experience.",
   },
 } as const;
