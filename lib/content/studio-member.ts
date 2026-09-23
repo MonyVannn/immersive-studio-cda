@@ -5,7 +5,7 @@
 import { foundingPage, type OfferPageContent } from "./founding";
 
 export const studioMemberCheckoutUrl =
-  "https://app.acuityscheduling.com/catalog.php?owner=40283262&action=addCart&clear=1&id=2274724";
+  "https://immersivestudiocda-book.as.me/catalog/fb0d2c96/?productId=2274724&clearCart=true";
 
 export const studioMemberPage: OfferPageContent = {
   meta: {

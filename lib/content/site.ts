@@ -183,7 +183,7 @@ export function getAudience(slug: string) {
   return audiences.find((audience) => audience.slug === slug);
 }
 
-export const bundleHref = "https://app.acuityscheduling.com/catalog/fb0d2c96/?productId=2281309&clearCart=true";
+export const bundleHref = "https://immersivestudiocda-book.as.me/catalog/fb0d2c96/?productId=2281309&clearCart=true";
 
 export const pageLinks: NavLink[] = [
   { label: "FAQ", href: "/faq" },

@@ -3,7 +3,7 @@
 // Kept in its own file so it can ship without touching site.ts.
 
 export const foundingCheckoutUrl =
-  "https://app.acuityscheduling.com/catalog.php?owner=40283262&action=addCart&clear=1&id=2274723";
+  "https://immersivestudiocda-book.as.me/catalog/fb0d2c96/?productId=2274723&clearCart=true";
 
 export type OfferPageContent = {
   meta: { title: string; description: string };
